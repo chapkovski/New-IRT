@@ -11,7 +11,7 @@ from otree.api import (
 from .widgets import OtherRadioSelect
 from django.utils.translation import gettext_lazy as _
 from .widgets import LikertWidget, BlockedCheckbox
-from trust.models import City
+
 from django.conf import settings
 
 
@@ -194,7 +194,7 @@ class Player(BasePlayer):
 
     reduce_income_diff = models.PositiveIntegerField(
         label=_('It is the responsibility of the government to reduce the differences in income between people with high incomes and those with low incomes'),
-        choices=Constants.reduce_income_difference_choies,
+        choices=Constants.reduce_income_difference_choices,
         widget=widgets.RadioSelect()
     )
 
@@ -209,7 +209,7 @@ class Player(BasePlayer):
         label=_("""Did your family financial situation change over the last year? How would you answer the previous question a year ago?""")
     )
 
-    regional_diff = models.PositiveIntegerField(
+    avg_monthly_income = models.PositiveIntegerField(
         label=_('In your opinion, what is the average monthly income of the residents of your region? Please write your estimate (in rubles per month)'),
     )
 
@@ -302,7 +302,7 @@ class Player(BasePlayer):
     own_business = models.IntegerField(label=_('For those who are not self-employed: Are you planning to start your own business?'), choices=Constants.Yes_No, widget=widgets.RadioSelect)
     save_money = models.IntegerField(label=_('Did you save any money in the previous 12 months?'), choices=Constants.Yes_No, widget=widgets.RadioSelect)
     fin_help = models.IntegerField(label=_('Did you send help (money or goods) to another individual in the previous 12 months?'), choices=Constants.Yes_No, widget=widgets.RadioSelect)
-    vore_official = models.IntegerField(label=_('Did you voice your opinion to a public official in the previous 12 months?'), choices=Constants.Yes_No, widget=widgets.RadioSelect)
+    vote_official = models.IntegerField(label=_('Did you voice your opinion to a public official in the previous 12 months?'), choices=Constants.Yes_No, widget=widgets.RadioSelect)
     volunteer = models.IntegerField(label=_('Did you voluntarily devote time to an organization in the previous 12 months?'), choices=Constants.Yes_No, widget=widgets.RadioSelect)
     police_confidence = models.IntegerField(label=_('In the city or area where you live, do you have confidence in the local police force?'), choices=Constants.Yes_No, widget=widgets.RadioSelect)
     safety = models.IntegerField(label=_('Do you feel safe walking alone at night in the city or area where you live?'), choices=Constants.Yes_No, widget=widgets.RadioSelect)
