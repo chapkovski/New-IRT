@@ -139,7 +139,6 @@ class Group(BaseGroup):
     pass
 
 class Player(BasePlayer):
-    inequality_with_images =models.IntegerField(label='Dont forget about images!!!')
     gender = models.BooleanField(initial=None,
                                  choices=Constants.GENDER_CHOICES,
                                  label=_('Indicate your gender'),
