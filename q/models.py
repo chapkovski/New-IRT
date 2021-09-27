@@ -131,6 +131,13 @@ class Constants(BaseConstants):
         HARD_TO_SAY_CHOICE
     ]
 
+    City_interaction = [
+        [0, _('No')],
+        [1, _('Yes')],
+        [2, _('No interaction')],
+        HARD_TO_SAY_CHOICE
+    ]
+
 class Subsession(BaseSubsession):
     pass
 
@@ -187,7 +194,7 @@ class Player(BasePlayer):
         choices=Constants.income_choices,
         widget=widgets.RadioSelect,
         label=_(
-            """Did your family financial situation change over the last year - How would you answer the previous question a year ago?""")
+            """Did your family financial situation change over the last year? - How would you have answered the previous question a year ago?""")
     )
 
     regional_average_income = models.PositiveIntegerField(
@@ -204,7 +211,7 @@ class Player(BasePlayer):
 
     regional_income_changed = models.PositiveIntegerField(
         label=_(
-            'In your opinion, did the the average monthly income of the residents of your region change over the last year?'),
+            'In your opinion, did the average monthly income of the residents of your region change over the last year?'),
         choices=Constants.regional_income_changed_choices,
         widget=widgets.RadioSelect()
     )
@@ -283,6 +290,10 @@ class Player(BasePlayer):
         choices=Constants.ready_help_choices,
         widget=widgets.RadioSelect)
 
+    ##Card 4.17 Сделать таблицу
+
+    ## Income block 4 картинки вставить
+
     # Yes/No questions
     donated_money = models.IntegerField(label=_('Have you donated money in the previous 12 months?'),
                                         choices=Constants.Yes_No, widget=widgets.RadioSelect)
@@ -301,7 +312,7 @@ class Player(BasePlayer):
     fin_help = models.IntegerField(
         label=_('Did you send help (money or goods) to another individual in the previous 12 months?'),
         choices=Constants.Yes_No, widget=widgets.RadioSelect)
-    vore_official = models.IntegerField(
+    vote_official = models.IntegerField(
         label=_('Did you voice your opinion to a public official in the previous 12 months?'), choices=Constants.Yes_No,
         widget=widgets.RadioSelect)
     volunteer = models.IntegerField(
@@ -318,13 +329,48 @@ class Player(BasePlayer):
     used_trust = models.IntegerField(label=_('Did someone take advantage of your trust in the last 6 months?'),
                                      choices=Constants.Yes_No, widget=widgets.RadioSelect)
     reciprocated_trust = models.IntegerField(
-        label=_('Did you experience a positive response in the last 6 months when you trusted someone?'),
+        label=_('In the last 6 months, when you trusted  someone, was your trust paid back?'),
         choices=Constants.Yes_No, widget=widgets.RadioSelect)
     disappointed_trust = models.IntegerField(
-        label=_('Have you disappointed someone in the last 6 months who has trusted you?'), choices=Constants.Yes_No,
+        label=_('In the last 6 months, have you disappointed someone who has trusted you? '), choices=Constants.Yes_No,
         widget=widgets.RadioSelect)
     donated_blood = models.IntegerField(label=_('Did you donate blood during the last 6 months?'),
                                         choices=Constants.Yes_No, widget=widgets.RadioSelect)
+
+    #Children qualities
+    good_manners = models.IntegerField(label=_(''),
+                                        choices=Constants.Yes_No, widget=widgets.RadioSelect)
+
+    independence = models.IntegerField(label=_(''),
+                                       choices=Constants.Yes_No, widget=widgets.RadioSelect)
+
+    hard_work = models.IntegerField(label=_(''),
+                                       choices=Constants.Yes_No, widget=widgets.RadioSelect)
+
+    responsibility = models.IntegerField(label=_(''),
+                                       choices=Constants.Yes_No, widget=widgets.RadioSelect)
+
+    imagination = models.IntegerField(label=_(''),
+                                       choices=Constants.Yes_No, widget=widgets.RadioSelect)
+
+    respectful_and_tolerant = models.IntegerField(label=_(''),
+                                       choices=Constants.Yes_No, widget=widgets.RadioSelect)
+
+    thrift = models.IntegerField(label=_(''),
+                                       choices=Constants.Yes_No, widget=widgets.RadioSelect)
+
+    determination = models.IntegerField(label=_(''),
+                                       choices=Constants.Yes_No, widget=widgets.RadioSelect)
+
+    religious = models.IntegerField(label=_(''),
+                                       choices=Constants.Yes_No, widget=widgets.RadioSelect)
+
+    unselfishness = models.IntegerField(label=_(''),
+                                       choices=Constants.Yes_No, widget=widgets.RadioSelect)
+
+    obedience = models.IntegerField(label=_(''),
+                                       choices=Constants.Yes_No, widget=widgets.RadioSelect)
+
 
     # Big 5
     big5_1 = models.IntegerField(label=_('I see myself as someone who is reserved'),
@@ -349,3 +395,101 @@ class Player(BasePlayer):
                                   choices=Constants.agreement_choices_5DNK, widget=widgets.RadioSelect)
     big5_11 = models.IntegerField(label=_('I see myself as someone who is reserved'),
                                   choices=Constants.agreement_choices_5DNK, widget=widgets.RadioSelect)
+
+  # City trust paid back
+    trust_paid_back_ARK = models.IntegerField(label=_(
+        'Was your trust paid back, when in the last 6 months you trusted someone from Arkhangelsk?'),
+        choices=Constants.City_interaction, widget=widgets.RadioSelect)
+
+    trust_paid_back_EKB = models.IntegerField(label=_(
+        'Was your trust paid back, when in the last 6 months you trusted someone from Ekaterinburg?'),
+        choices=Constants.City_interaction, widget=widgets.RadioSelect)
+
+    trust_paid_back_KAZ = models.IntegerField(label=_(
+        'Was your trust paid back, when in the last 6 months you trusted someone from Kazan?'),
+        choices=Constants.City_interaction, widget=widgets.RadioSelect)
+
+    trust_paid_back_KHB = models.IntegerField(label=_(
+        'Was your trust paid back, when in the last 6 months you trusted someone from Khabarovsk?'),
+        choices=Constants.City_interaction, widget=widgets.RadioSelect)
+
+    trust_paid_back_MAK = models.IntegerField(label=_(
+        'Was your trust paid back, when in the last 6 months you trusted someone from Makhachkala?'),
+        choices=Constants.City_interaction, widget=widgets.RadioSelect)
+
+    trust_paid_back_MOS = models.IntegerField(label=_(
+        'Was your trust paid back, when in the last 6 months you trusted someone from Moscow?'),
+        choices=Constants.City_interaction, widget=widgets.RadioSelect)
+
+    trust_paid_back_NSK = models.IntegerField(label=_(
+        'Was your trust paid back, when in the last 6 months you trusted someone from Novosibirsk?'),
+        choices=Constants.City_interaction, widget=widgets.RadioSelect)
+
+    trust_paid_back_PER = models.IntegerField(label=_(
+        'Was your trust paid back, when in the last 6 months you trusted someone from Perm?'),
+        choices=Constants.City_interaction, widget=widgets.RadioSelect)
+
+    trust_paid_back_ROS = models.IntegerField(label=_(
+        'Was your trust paid back, when in the last 6 months you trusted someone from Rostov-on-Don?'),
+        choices=Constants.City_interaction, widget=widgets.RadioSelect)
+
+    trust_paid_back_SPB = models.IntegerField(label=_(
+        'Was your trust paid back, when in the last 6 months you trusted someone from St. Petersburg?'),
+        choices=Constants.City_interaction, widget=widgets.RadioSelect)
+
+    trust_paid_back_VLK = models.IntegerField(label=_(
+        'Was your trust paid back, when in the last 6 months you trusted someone from Vladivostok?'),
+        choices=Constants.City_interaction, widget=widgets.RadioSelect)
+
+    trust_paid_back_VOR = models.IntegerField(label=_(
+        'Was your trust paid back, when in the last 6 months you trusted someone from Voronezh?'),
+        choices=Constants.City_interaction, widget=widgets.RadioSelect)
+
+    # City trust disappointed
+    trust_disappointed_ARK = models.IntegerField(label=_(
+        'In the last 6 months, have you disappointed someone from Arkhangelsk who has trusted you?'),
+        choices=Constants.City_interaction, widget=widgets.RadioSelect)
+
+    trust_disappointed_EKB = models.IntegerField(label=_(
+        'In the last 6 months, have you disappointed someone from Ekaterinburg who has trusted you?'),
+        choices=Constants.City_interaction, widget=widgets.RadioSelect)
+
+    trust_disappointed_KAZ = models.IntegerField(label=_(
+        'In the last 6 months, have you disappointed someone from Kazan who has trusted you?'),
+        choices=Constants.City_interaction, widget=widgets.RadioSelect)
+
+    trust_disappointed_KHB = models.IntegerField(label=_(
+        'In the last 6 months, have you disappointed someone from Khabarovsk who has trusted you?'),
+        choices=Constants.City_interaction, widget=widgets.RadioSelect)
+
+    trust_disappointed_MAK = models.IntegerField(label=_(
+        'In the last 6 months, have you disappointed someone from Makhachkala who has trusted you?'),
+        choices=Constants.City_interaction, widget=widgets.RadioSelect)
+
+    trust_disappointed_MOS = models.IntegerField(label=_(
+        'In the last 6 months, have you disappointed someone from Moscow who has trusted you?'),
+        choices=Constants.City_interaction, widget=widgets.RadioSelect)
+
+    trust_disappointed_NSK = models.IntegerField(label=_(
+        'In the last 6 months, have you disappointed someone from Novosibirsk who has trusted you?'),
+        choices=Constants.City_interaction, widget=widgets.RadioSelect)
+
+    trust_disappointed_PER = models.IntegerField(label=_(
+        'In the last 6 months, have you disappointed someone from Perm who has trusted you?'),
+        choices=Constants.City_interaction, widget=widgets.RadioSelect)
+
+    trust_disappointed_ROS = models.IntegerField(label=_(
+        'In the last 6 months, have you disappointed someone from Rostov-on-Don who has trusted you?'),
+        choices=Constants.City_interaction, widget=widgets.RadioSelect)
+
+    trust_disappointed_SPB = models.IntegerField(label=_(
+        'In the last 6 months, have you disappointed someone from St. Petersburg who has trusted you?'),
+        choices=Constants.City_interaction, widget=widgets.RadioSelect)
+
+    trust_disappointed_VLK = models.IntegerField(label=_(
+        'In the last 6 months, have you disappointed someone from Vladivostok who has trusted you?'),
+        choices=Constants.City_interaction, widget=widgets.RadioSelect)
+
+    trust_disappointed_VOR = models.IntegerField(label=_(
+        'In the last 6 months, have you disappointed someone from Voronezh who has trusted you?'),
+        choices=Constants.City_interaction, widget=widgets.RadioSelect)

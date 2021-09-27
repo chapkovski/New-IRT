@@ -43,7 +43,7 @@ class AltruismAndTrust(Page):
                    "own_business",
                    "save_money",
                    "fin_help",
-                   "vore_official",
+                   "vote_official",
                    "volunteer",
                    "police_confidence",
                    "safety",
@@ -68,6 +68,47 @@ class Patience(Page):
     def get_form_fields(self):
         return [f'patience_{i}' for i in range(1, 5)]
 
+class CityInteractionsTrustPaid(Page):
+    form_fields = ["trust_paid_back_ARK",
+                   "trust_paid_back_EKB",
+                   "trust_paid_back_KAZ",
+                   "trust_paid_back_KHB",
+                   "trust_paid_back_MAK",
+                   "trust_paid_back_MOS",
+                   "trust_paid_back_NSK",
+                   "trust_paid_back_PER",
+                   "trust_paid_back_POS",
+                   "trust_paid_back_SPB",
+                   "trust_paid_back_VLK",
+                   "trust_paid_back_VOR",
+                   ]
+class CityInteractionsTrustDisappointed(Page):
+    form_fields = ["trust_disappointed_ARK",
+                   "trust_disappointed_EKB",
+                   "trust_disappointed_KAZ",
+                   "trust_disappointed_KHB",
+                   "trust_disappointed_MAK",
+                   "trust_disappointed_MOS",
+                   "trust_disappointed_NSK",
+                   "trust_disappointed_PER",
+                   "trust_disappointed_POS",
+                   "trust_disappointed_SPB",
+                   "trust_disappointed_VLK",
+                   "trust_disappointed_VOR",
+                   ]
+
+class ChildrenQualities(Page):
+    form_fields = ["good_manners",
+                   "independence",
+                   "hard_work",
+                   "responsibility",
+                   "imagination",
+                   "thrift",
+                   "determination",
+                   "religious",
+                   "unselfishness",
+                   "obedience",
+                   ]
 
 page_sequence = [
     Income,
@@ -75,5 +116,8 @@ page_sequence = [
     Big5,
     Risk,
     Patience,
-    SES
+    SES,
+    ChildrenQualities,
+    CityInteractionsTrustPaid,
+    CityInteractionsTrustDisappointed
 ]
