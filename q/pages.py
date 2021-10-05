@@ -83,6 +83,7 @@ class CityInteractionsTrustPaid(Page):
                    "trust_paid_back_VOR",
                    ]
 class CityInteractionsTrustDisappointed(Page):
+    template_name = 'q/CityInteractionsTrustDisappointed.html'
     form_fields = ["trust_disappointed_ARK",
                    "trust_disappointed_EKB",
                    "trust_disappointed_KAZ",
@@ -98,6 +99,7 @@ class CityInteractionsTrustDisappointed(Page):
                    ]
 
 class ChildrenQualities(Page):
+
     form_fields = ["good_manners",
                    "independence",
                    "hard_work",
@@ -111,13 +113,13 @@ class ChildrenQualities(Page):
                    ]
 
 page_sequence = [
-    Income,
-    AltruismAndTrust,
-    Big5,
-    Risk,
-    Patience,
-    SES,
-    ChildrenQualities,
-    CityInteractionsTrustPaid,
+    # Income,
+    # AltruismAndTrust,
+    # Big5,
+    # Risk,
+    # Patience,
+    # SES,
+    # ChildrenQualities,
+    # CityInteractionsTrustPaid,
     CityInteractionsTrustDisappointed
 ]
