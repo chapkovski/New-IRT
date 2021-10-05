@@ -1,13 +1,84 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
 
-
 {% block title %}
-   {{ view.title }}
+    CityInteractionsTrustDisappointed
 {% endblock %}
+
+
 {% block content %}
-    <div class="alert alert-info lead text-center"> Please answer the following questions:</div>
-    {% formfields %}
-    <div class="my-3">    {% next_button %}
-    </div>
+    <style>
+        label.btn.btn-default.btn-secondary.active {
+            background: yellow;
+            color: black;
+        }
+
+    </style>
+    <script src="https://unpkg.com/survey-jquery@1.8.70/survey.jquery.min.js"></script>
+
+    <div id="surveyElement" style="display:inline-block;width:100%;"></div>
+    <div id="surveyResult"></div>
+    <input type="hidden" id="surveyholder" name="surveyholder">
+    <script>
+        Survey.defaultBootstrapCss.navigationButton = "btn-primary btn-lg";
+        Survey
+            .StylesManager
+            .applyTheme("bootstrap");
+
+        var json = {
+            requiredText: '',
+            showQuestionNumbers: "off",
+            questions: [
+                {
+                    type: "matrixdropdown",
+                    name: "trust_disappointed",
+                    title: "In the last 6 months, have you disappointed someone from one of the following city who has trusted you?",
+
+                    columns: [
+                        {
+                            name: "col1",
+                            cellType: "radiogroup",
+                            showInMultipleColumns: true,
+                            isRequired: true,
+                            choices: [{value: 0, text: "No"},
+                                {value: 1, text: "Yes"},
+                                {value: 2, text: "No interaction"},
+                                {value: 999, text: "Hard to say"}]
+                        },
+                    ],
+                    rows: [
+                        {value: 'trust_disappointed_ARK', text: 'Arkhangelsk'},
+                        {value: 'trust_disappointed_EKB', text: 'Ekaterinburg'},
+                        {value: 'trust_disappointed_KAZ', text: 'Kazan'},
+                        {value: 'trust_disappointed_KHB', text: 'Khabarovsk'},
+                        {value: 'trust_disappointed_MAK', text: 'Makhachkala'},
+                        {value: 'trust_disappointed_MOS', text: 'Moscow'},
+                        {value: 'trust_disappointed_NSK', text: 'Novosibirsk'},
+                        {value: 'trust_disappointed_PER', text: 'Perm'},
+                        {value: 'trust_disappointed_ROS', text: 'Rostov-on-Don'},
+                        {value: 'trust_disappointed_SPB', text: 'St. Petersburg'},
+                        {value: 'trust_disappointed_VLK', text: 'Vladivostok'},
+                        {value: 'trust_disappointed_VOR', text: 'Voronezh'},
+
+                    ]
+                }
+            ]
+        };
+
+        window.survey = new Survey.Model(json);
+
+        survey
+            .onComplete
+            .add(function (sender) {
+                document
+                $('#surveyholder').val(JSON.stringify(sender.data, null, 3))
+                $('#form').submit()
+                ;
+            });
+
+        $("#surveyElement").Survey({model: survey});
+        ;
+    </script>
+
+
 {% endblock %}

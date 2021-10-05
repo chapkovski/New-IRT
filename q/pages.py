@@ -82,35 +82,32 @@ class CityInteractionsTrustPaid(Page):
                    "trust_paid_back_VLK",
                    "trust_paid_back_VOR",
                    ]
+import json
+from pprint import pprint
 class CityInteractionsTrustDisappointed(Page):
+    def post(self):
+        data = json.loads(self.request.POST.get('surveyholder')).get('trust_disappointed')
+
+        for k,v in data.items():
+
+            setattr(self.player, k, v.get('col1'))
+        return super().post()
     template_name = 'q/CityInteractionsTrustDisappointed.html'
-    form_fields = ["trust_disappointed_ARK",
-                   "trust_disappointed_EKB",
-                   "trust_disappointed_KAZ",
-                   "trust_disappointed_KHB",
-                   "trust_disappointed_MAK",
-                   "trust_disappointed_MOS",
-                   "trust_disappointed_NSK",
-                   "trust_disappointed_PER",
-                   "trust_disappointed_POS",
-                   "trust_disappointed_SPB",
-                   "trust_disappointed_VLK",
-                   "trust_disappointed_VOR",
-                   ]
+
 
 class ChildrenQualities(Page):
-
-    form_fields = ["good_manners",
-                   "independence",
-                   "hard_work",
-                   "responsibility",
-                   "imagination",
-                   "thrift",
-                   "determination",
-                   "religious",
-                   "unselfishness",
-                   "obedience",
-                   ]
+    pass
+    # form_fields = ["good_manners",
+    #                "independence",
+    #                "hard_work",
+    #                "responsibility",
+    #                "imagination",
+    #                "thrift",
+    #                "determination",
+    #                "religious",
+    #                "unselfishness",
+    #                "obedience",
+    #                ]
 
 page_sequence = [
     # Income,
