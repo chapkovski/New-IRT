@@ -30,8 +30,14 @@ class Income(Page):
 
 
 class Big5(Page):
-    def get_form_fields(self):
-        return [f'big5_{i}' for i in range(1, 11)]
+    template_name = 'q/Big5.html'
+    def post(self):
+        data = json.loads(self.request.POST.get('surveyholder')).get('big5')
+
+        for k,v in data.items():
+            setattr(self.player, k, v.get('col1'))
+        return super().post()
+
 
 
 class AltruismAndTrust(Page):
@@ -89,7 +95,6 @@ class CityInteractionsTrustDisappointed(Page):
         data = json.loads(self.request.POST.get('surveyholder')).get('trust_disappointed')
 
         for k,v in data.items():
-
             setattr(self.player, k, v.get('col1'))
         return super().post()
     template_name = 'q/CityInteractionsTrustDisappointed.html'
@@ -112,7 +117,7 @@ class ChildrenQualities(Page):
 page_sequence = [
     # Income,
     # AltruismAndTrust,
-    # Big5,
+    Big5,
     # Risk,
     # Patience,
     # SES,
