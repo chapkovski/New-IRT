@@ -1,7 +1,8 @@
 from otree.api import Currency as c, currency_range
 from ._builtin import Page as oTreePage, WaitPage
 from .models import Constants
-
+import json
+from pprint import pprint
 
 class Page(oTreePage):
     def title(self):
@@ -61,18 +62,25 @@ class AltruismAndTrust(Page):
 
 
 class Risk(Page):
-    form_fields = ["risk_general",
-                   "risk_fin",
-                   "risk_sport",
-                   "risk_prof",
-                   "risk_health",
-                   "risk_strangers",
-                   "risk_drive", ]
+    template_name = 'q/Risk.html'
+    def post(self):
+        data = json.loads(self.request.POST.get('surveyholder')).get('risk')
+        pprint(data)
+        for k,v in data.items():
+            setattr(self.player, k, v.get('col1'))
+        return super().post()
+
 
 
 class Patience(Page):
-    def get_form_fields(self):
-        return [f'patience_{i}' for i in range(1, 5)]
+    def post(self):
+        data = json.loads(self.request.POST.get('surveyholder')).get('patience')
+
+        for k,v in data.items():
+            setattr(self.player, k, v.get('col1'))
+        return super().post()
+    template_name = 'q/Patience.html'
+
 
 class CityInteractionsTrustPaid(Page):
     form_fields = ["trust_paid_back_ARK",
@@ -88,8 +96,7 @@ class CityInteractionsTrustPaid(Page):
                    "trust_paid_back_VLK",
                    "trust_paid_back_VOR",
                    ]
-import json
-from pprint import pprint
+
 class CityInteractionsTrustDisappointed(Page):
     def post(self):
         data = json.loads(self.request.POST.get('surveyholder')).get('trust_disappointed')
@@ -117,11 +124,11 @@ class ChildrenQualities(Page):
 page_sequence = [
     # Income,
     # AltruismAndTrust,
-    Big5,
+    # Big5,
     # Risk,
     # Patience,
     # SES,
     # ChildrenQualities,
-    # CityInteractionsTrustPaid,
-    CityInteractionsTrustDisappointed
+    CityInteractionsTrustPaid, #TODO
+    # CityInteractionsTrustDisappointed
 ]
