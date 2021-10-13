@@ -101,7 +101,7 @@ class CityInteractionsTrustDisappointed(Page):
 
 
 class ChildrenQualities(Page):
-    pass
+    template_name = 'q/ChildrenQualities.html'
     # form_fields = ["good_manners",
     #                "independence",
     #                "hard_work",
@@ -116,12 +116,12 @@ class ChildrenQualities(Page):
 
 page_sequence = [
     # Income,
-    AltruismAndTrust,
-    Big5,
-    Risk,
-    Patience,
+    # AltruismAndTrust,
+    # Big5,
+    # Risk,
+    # Patience,
     # SES,
-    # ChildrenQualities,
+    ChildrenQualities,
     CityInteractionsTrustPaid, #TODO
-    # CityInteractionsTrustDisappointed
+    CityInteractionsTrustDisappointed
 ]
