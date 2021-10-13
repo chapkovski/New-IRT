@@ -42,23 +42,16 @@ class Big5(Page):
 
 
 class AltruismAndTrust(Page):
-    form_fields = ["ready_help",
-                   "donated_money",
-                   "count_on_relatives",
-                   "help_stranger",
-                   "self_employed",
-                   "own_business",
-                   "save_money",
-                   "fin_help",
-                   "vote_official",
-                   "volunteer",
-                   "police_confidence",
-                   "safety",
-                   "stolen_money",
-                   "used_trust",
-                   "reciprocated_trust",
-                   "disappointed_trust",
-                   "donated_blood", ]
+    template_name = 'q/AltruismAndTrust.html'
+
+    def post(self):
+        data = json.loads(self.request.POST.get('surveyholder'))
+        ready_help = data.get('ready_help')
+        self.player.ready_help = ready_help
+        altruism = data.get('altruism')
+        for k, v in altruism.items():
+            setattr(self.player, k, v.get('col1'))
+        return super().post()
 
 
 class Risk(Page):
@@ -91,7 +84,7 @@ class CityInteractionsTrustPaid(Page):
                    "trust_paid_back_MOS",
                    "trust_paid_back_NSK",
                    "trust_paid_back_PER",
-                   "trust_paid_back_POS",
+                   "trust_paid_back_ROS",
                    "trust_paid_back_SPB",
                    "trust_paid_back_VLK",
                    "trust_paid_back_VOR",
@@ -123,10 +116,10 @@ class ChildrenQualities(Page):
 
 page_sequence = [
     # Income,
-    # AltruismAndTrust,
-    # Big5,
-    # Risk,
-    # Patience,
+    AltruismAndTrust,
+    Big5,
+    Risk,
+    Patience,
     # SES,
     # ChildrenQualities,
     CityInteractionsTrustPaid, #TODO
