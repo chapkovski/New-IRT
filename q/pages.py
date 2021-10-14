@@ -1,7 +1,8 @@
 from otree.api import Currency as c, currency_range
 from ._builtin import Page as oTreePage, WaitPage
 from .models import Constants
-
+import json
+from pprint import pprint
 
 class Page(oTreePage):
     def title(self):
@@ -30,43 +31,49 @@ class Income(Page):
 
 
 class Big5(Page):
-    def get_form_fields(self):
-        return [f'big5_{i}' for i in range(1, 11)]
+    template_name = 'q/Big5.html'
+    def post(self):
+        data = json.loads(self.request.POST.get('surveyholder')).get('big5')
+
+        for k,v in data.items():
+            setattr(self.player, k, v.get('col1'))
+        return super().post()
+
 
 
 class AltruismAndTrust(Page):
-    form_fields = ["ready_help",
-                   "donated_money",
-                   "count_on_relatives",
-                   "help_stranger",
-                   "self_employed",
-                   "own_business",
-                   "save_money",
-                   "fin_help",
-                   "vote_official",
-                   "volunteer",
-                   "police_confidence",
-                   "safety",
-                   "stolen_money",
-                   "used_trust",
-                   "reciprocated_trust",
-                   "disappointed_trust",
-                   "donated_blood", ]
+    template_name = 'q/AltruismAndTrust.html'
+
+    def post(self):
+        data = json.loads(self.request.POST.get('surveyholder'))
+        ready_help = data.get('ready_help')
+        self.player.ready_help = ready_help
+        altruism = data.get('altruism')
+        for k, v in altruism.items():
+            setattr(self.player, k, v.get('col1'))
+        return super().post()
 
 
 class Risk(Page):
-    form_fields = ["risk_general",
-                   "risk_fin",
-                   "risk_sport",
-                   "risk_prof",
-                   "risk_health",
-                   "risk_strangers",
-                   "risk_drive", ]
+    template_name = 'q/Risk.html'
+    def post(self):
+        data = json.loads(self.request.POST.get('surveyholder')).get('risk')
+        pprint(data)
+        for k,v in data.items():
+            setattr(self.player, k, v.get('col1'))
+        return super().post()
+
 
 
 class Patience(Page):
-    def get_form_fields(self):
-        return [f'patience_{i}' for i in range(1, 5)]
+    def post(self):
+        data = json.loads(self.request.POST.get('surveyholder')).get('patience')
+
+        for k,v in data.items():
+            setattr(self.player, k, v.get('col1'))
+        return super().post()
+    template_name = 'q/Patience.html'
+
 
 class CityInteractionsTrustPaid(Page):
     form_fields = ["trust_paid_back_ARK",
@@ -77,47 +84,44 @@ class CityInteractionsTrustPaid(Page):
                    "trust_paid_back_MOS",
                    "trust_paid_back_NSK",
                    "trust_paid_back_PER",
-                   "trust_paid_back_POS",
+                   "trust_paid_back_ROS",
                    "trust_paid_back_SPB",
                    "trust_paid_back_VLK",
                    "trust_paid_back_VOR",
                    ]
+
 class CityInteractionsTrustDisappointed(Page):
-    form_fields = ["trust_disappointed_ARK",
-                   "trust_disappointed_EKB",
-                   "trust_disappointed_KAZ",
-                   "trust_disappointed_KHB",
-                   "trust_disappointed_MAK",
-                   "trust_disappointed_MOS",
-                   "trust_disappointed_NSK",
-                   "trust_disappointed_PER",
-                   "trust_disappointed_POS",
-                   "trust_disappointed_SPB",
-                   "trust_disappointed_VLK",
-                   "trust_disappointed_VOR",
-                   ]
+    def post(self):
+        data = json.loads(self.request.POST.get('surveyholder')).get('trust_disappointed')
+
+        for k,v in data.items():
+            setattr(self.player, k, v.get('col1'))
+        return super().post()
+    template_name = 'q/CityInteractionsTrustDisappointed.html'
+
 
 class ChildrenQualities(Page):
-    form_fields = ["good_manners",
-                   "independence",
-                   "hard_work",
-                   "responsibility",
-                   "imagination",
-                   "thrift",
-                   "determination",
-                   "religious",
-                   "unselfishness",
-                   "obedience",
-                   ]
+    template_name = 'q/ChildrenQualities.html'
+    # form_fields = ["good_manners",
+    #                "independence",
+    #                "hard_work",
+    #                "responsibility",
+    #                "imagination",
+    #                "thrift",
+    #                "determination",
+    #                "religious",
+    #                "unselfishness",
+    #                "obedience",
+    #                ]
 
 page_sequence = [
-    Income,
-    AltruismAndTrust,
-    Big5,
-    Risk,
-    Patience,
-    SES,
+    # Income,
+    # AltruismAndTrust,
+    # Big5,
+    # Risk,
+    # Patience,
+    # SES,
     ChildrenQualities,
-    CityInteractionsTrustPaid,
+    CityInteractionsTrustPaid, #TODO
     CityInteractionsTrustDisappointed
 ]
