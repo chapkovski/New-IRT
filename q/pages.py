@@ -75,22 +75,6 @@ class Patience(Page):
         return super().post()
     template_name = 'q/Patience.html'
 
-
-class CityInteractionsTrustPaid(Page):
-    form_fields = ["trust_paid_back_ARK",
-                   "trust_paid_back_EKB",
-                   "trust_paid_back_KAZ",
-                   "trust_paid_back_KHB",
-                   "trust_paid_back_MAK",
-                   "trust_paid_back_MOS",
-                   "trust_paid_back_NSK",
-                   "trust_paid_back_PER",
-                   "trust_paid_back_ROS",
-                   "trust_paid_back_SPB",
-                   "trust_paid_back_VLK",
-                   "trust_paid_back_VOR",
-                   ]
-
 class CityInteractionsTrustDisappointed(Page):
     def post(self):
         data = json.loads(self.request.POST.get('surveyholder')).get('trust_disappointed')
@@ -99,6 +83,17 @@ class CityInteractionsTrustDisappointed(Page):
             setattr(self.player, k, v.get('col1'))
         return super().post()
     template_name = 'q/CityInteractionsTrustDisappointed.html'
+
+class TrustPaidBack(Page):
+    def post(self):
+        data = json.loads(self.request.POST.get('surveyholder')).get('trust_paid_back')
+
+        for k, v in data.items():
+                setattr(self.player, k, v.get('col1'))
+        return super().post()
+
+    template_name = 'q/TrustPaidBack.html'
+
 
 
 class ChildrenQualities(Page):
@@ -112,6 +107,17 @@ class ChildrenQualities(Page):
                     setattr(self.player, i, 1)
         print(data,'=======')
         return super().post()
+
+class Pictures(Page):
+     def post(self):
+         data = json.loads(self.request.POST.get('surveyholder')).get('pictures')
+
+        for k, v in data.items():
+            setattr(self.player, k, v.get('col1'))
+         return super().post()
+
+    template_name = 'q/Pictures.html'
+
 page_sequence = [
     # Income,
     # AltruismAndTrust,
@@ -120,6 +126,7 @@ page_sequence = [
     # Patience,
     # SES,
     # ChildrenQualities,
-    CityInteractionsTrustPaid, #TODO
-    CityInteractionsTrustDisappointed
+    TrustPaidBack,
+    CityInteractionsTrustDisappointed,
+    Pictures
 ]
