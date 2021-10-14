@@ -32,6 +32,22 @@ class Income(Page):
         "relative_income", ]
 
 
+class IncomeScale(Page):
+    template_name = 'q/IncomeScale.html'
+
+    def post(self):
+        data = json.loads(self.request.POST.get('surveyholder')).get('income_scale')
+        self.player.income_scale = data
+        return super().post()
+class IncomeScaleFamily(Page):
+    template_name = 'q/IncomeScaleFamily.html'
+
+    def post(self):
+        data = json.loads(self.request.POST.get('surveyholder')).get('income_scale_family')
+        self.player.income_scale_family = data
+        return super().post()
+
+
 class Big5(Page):
     template_name = 'q/Big5.html'
 
@@ -116,37 +132,30 @@ class ChildrenQualities(Page):
 
 class IncomePyramid(Page):
     template_name = 'q/IncomePyramid.html'
-
-    def post(self):
-        data = json.loads(self.request.POST.get('surveyholder')).get('IncomePyramid')
-
-        for k, v in data.items():
-            setattr(self.player, k, v.get('col1'))
-        return super().post()
+    form_model = 'player'
+    form_fields = ['income_pyramid']
 
 
 class IncomePyramidRegional(Page):
     template_name = 'q/IncomePyramidRegional.html'
-
-    def post(self):
-        data = json.loads(self.request.POST.get('surveyholder')).get('IncomePyramidRegional')
-
-        for k, v in data.items():
-            setattr(self.player, k, v.get('col1'))
-        return super().post()
+    form_model = 'player'
+    form_fields = ['income_pyramid_regional']
 
 
 page_sequence = [
-    # Income,
-    # IncomePyramid,
+    Income,
+    IncomeScale,
+    IncomeScaleFamily,
+    IncomePyramid,
     IncomePyramidRegional,
-    # AltruismAndTrust,
-    # Big5,
-    # Risk,
-    # Patience,
-    # SES,
-    # ChildrenQualities,
-    # TrustPaidBack,
-    # CityInteractionsTrustDisappointed,
+
+    AltruismAndTrust,
+    Big5,
+    Risk,
+    Patience,
+    SES,
+    ChildrenQualities,
+    TrustPaidBack,
+    CityInteractionsTrustDisappointed,
 
 ]

@@ -293,7 +293,10 @@ class Player(BasePlayer):
     ##Card 4.17 Сделать таблицу
 
     ## Income block 4 картинки вставить
-
+    income_scale = models.IntegerField()
+    income_scale_family = models.IntegerField()
+    income_pyramid = models.IntegerField()
+    income_pyramid_regional= models.IntegerField()
     # Yes/No questions
     donated_money = models.IntegerField(label=_('Have you donated money in the previous 12 months?'),
                                         choices=Constants.Yes_No, widget=widgets.RadioSelect)
