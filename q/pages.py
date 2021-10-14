@@ -82,9 +82,9 @@ class Patience(Page):
 class CityInteractionsTrustDisappointed(Page):
     def post(self):
         data = json.loads(self.request.POST.get('surveyholder')).get('trust_disappointed')
-
-        for k, v in data.items():
-            setattr(self.player, k, v.get('col1'))
+        if data:
+            for k, v in data.items():
+                setattr(self.player, k, v.get('col1'))
         return super().post()
 
     template_name = 'q/CityInteractionsTrustDisappointed.html'
@@ -93,9 +93,9 @@ class CityInteractionsTrustDisappointed(Page):
 class TrustPaidBack(Page):
     def post(self):
         data = json.loads(self.request.POST.get('surveyholder')).get('trust_paid_back')
-
-        for k, v in data.items():
-            setattr(self.player, k, v.get('col1'))
+        if data:
+            for k, v in data.items():
+                setattr(self.player, k, v.get('col1'))
         return super().post()
 
     template_name = 'q/TrustPaidBack.html'
@@ -114,7 +114,8 @@ class ChildrenQualities(Page):
         return super().post()
 
 
-class Pictures(Page):
+class IncomePyramid(Page):
+    template_name = 'q/IncomePyramid.html'
     def post(self):
         data = json.loads(self.request.POST.get('surveyholder')).get('pictures')
 
@@ -123,17 +124,18 @@ class Pictures(Page):
         return super().post()
 
 
-template_name = 'q/Pictures.html'
+
 
 page_sequence = [
     # Income,
+    IncomePyramid,
     # AltruismAndTrust,
     # Big5,
     # Risk,
     # Patience,
     # SES,
-    # ChildrenQualities,
-    TrustPaidBack,
-    CityInteractionsTrustDisappointed,
-    Pictures
+    ChildrenQualities,
+    # TrustPaidBack,
+    # CityInteractionsTrustDisappointed,
+
 ]
