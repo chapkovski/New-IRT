@@ -1,0 +1,84 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    TrustPaidBack
+{% endblock %}
+
+
+{% block content %}
+    <style>
+        label.btn.btn-default.btn-secondary.active {
+            background: yellow;
+            color: black;
+        }
+
+    </style>
+    <script src="https://unpkg.com/survey-jquery@1.8.70/survey.jquery.min.js"></script>
+
+    <div id="surveyElement" style="display:inline-block;width:100%;"></div>
+    <div id="surveyResult"></div>
+    <input type="hidden" id="surveyholder" name="surveyholder">
+    <script>
+        Survey.defaultBootstrapCss.navigationButton = "btn-primary btn-lg";
+        Survey
+            .StylesManager
+            .applyTheme("bootstrap");
+
+        var json = {
+            requiredText: '',
+            showQuestionNumbers: "off",
+            questions: [
+                {
+                    type: "matrixdropdown",
+                    name: "trust_paid_back",
+                    title: "Was your trust paid back, when in the last 6 months you trusted someone from the following cities?",
+
+                    columns: [
+                        {
+                            name: "col1",
+                            cellType: "radiogroup",
+                            showInMultipleColumns: true,
+                            isRequired: true,
+                            choices: [{value: 0, text: "No"},
+                                {value: 1, text: "Yes"},
+                                {value: 2, text: "No interaction"},
+                                {value: 999, text: "Hard to say"}]
+                        },
+                    ],
+                    rows: [
+                        {value: 'trust_paid_back_ARK', text: 'Arkhangelsk'},
+                        {value: 'trust_paid_back_EKB', text: 'Ekaterinburg'},
+                        {value: 'trust_paid_back_KAZ', text: 'Kazan'},
+                        {value: 'trust_paid_back_KHB', text: 'Khabarovsk'},
+                        {value: 'trust_paid_back_MAK', text: 'Makhachkala'},
+                        {value: 'trust_paid_back_MOS', text: 'Moscow'},
+                        {value: 'trust_paid_back_NSK', text: 'Novosibirsk'},
+                        {value: 'trust_paid_back_PER', text: 'Perm'},
+                        {value: 'trust_paid_back_ROS', text: 'Rostov-on-Don'},
+                        {value: 'trust_paid_back_SPB', text: 'St. Petersburg'},
+                        {value: 'trust_paid_back_VLK', text: 'Vladivostok'},
+                        {value: 'trust_paid_back_VOR', text: 'Voronezh'},
+
+                    ]
+                }
+            ]
+        };
+
+        window.survey = new Survey.Model(json);
+
+        survey
+            .onComplete
+            .add(function (sender) {
+                document
+                $('#surveyholder').val(JSON.stringify(sender.data, null, 3))
+                $('#form').submit()
+                ;
+            });
+
+        $("#surveyElement").Survey({model: survey});
+        ;
+    </script>
+
+
+{% endblock %}
