@@ -2,7 +2,7 @@
 {% load otree static %}
 
 {% block title %}
-   Big5
+    Big5
 {% endblock %}
 
 
@@ -28,6 +28,8 @@
         var json = {
             requiredText: '',
             showQuestionNumbers: "off",
+            showCompletedPage: false,
+            completeText: "Next",
             questions: [
                 {
                     type: "matrixdropdown",
@@ -39,7 +41,7 @@
                             name: "col1",
                             cellType: "radiogroup",
                             showInMultipleColumns: true,
-                            isRequired: true,
+                            isRequired: false,
                             choices: [
                                 {value: 1, text: "Totally disagree"},
                                 {value: 2, text: "Somewhat disagree"},
