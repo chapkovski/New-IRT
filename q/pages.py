@@ -4,9 +4,11 @@ from .models import Constants
 import json
 from pprint import pprint
 
+
 class Page(oTreePage):
     def title(self):
         return self.__class__.__name__
+
     template_name = 'q/Q1.html'
     form_model = 'player'
 
@@ -32,13 +34,13 @@ class Income(Page):
 
 class Big5(Page):
     template_name = 'q/Big5.html'
+
     def post(self):
         data = json.loads(self.request.POST.get('surveyholder')).get('big5')
 
-        for k,v in data.items():
+        for k, v in data.items():
             setattr(self.player, k, v.get('col1'))
         return super().post()
-
 
 
 class AltruismAndTrust(Page):
@@ -57,43 +59,46 @@ class AltruismAndTrust(Page):
 
 class Risk(Page):
     template_name = 'q/Risk.html'
+
     def post(self):
         data = json.loads(self.request.POST.get('surveyholder')).get('risk')
         pprint(data)
-        for k,v in data.items():
+        for k, v in data.items():
             setattr(self.player, k, v.get('col1'))
         return super().post()
-
 
 
 class Patience(Page):
     def post(self):
         data = json.loads(self.request.POST.get('surveyholder')).get('patience')
 
-        for k,v in data.items():
+        for k, v in data.items():
             setattr(self.player, k, v.get('col1'))
         return super().post()
+
     template_name = 'q/Patience.html'
+
 
 class CityInteractionsTrustDisappointed(Page):
     def post(self):
         data = json.loads(self.request.POST.get('surveyholder')).get('trust_disappointed')
 
-        for k,v in data.items():
+        for k, v in data.items():
             setattr(self.player, k, v.get('col1'))
         return super().post()
+
     template_name = 'q/CityInteractionsTrustDisappointed.html'
+
 
 class TrustPaidBack(Page):
     def post(self):
         data = json.loads(self.request.POST.get('surveyholder')).get('trust_paid_back')
 
         for k, v in data.items():
-                setattr(self.player, k, v.get('col1'))
+            setattr(self.player, k, v.get('col1'))
         return super().post()
 
     template_name = 'q/TrustPaidBack.html'
-
 
 
 class ChildrenQualities(Page):
@@ -105,18 +110,20 @@ class ChildrenQualities(Page):
             for i in data:
                 if hasattr(self.player, i):
                     setattr(self.player, i, 1)
-        print(data,'=======')
+        print(data, '=======')
         return super().post()
 
+
 class Pictures(Page):
-     def post(self):
-         data = json.loads(self.request.POST.get('surveyholder')).get('pictures')
+    def post(self):
+        data = json.loads(self.request.POST.get('surveyholder')).get('pictures')
 
         for k, v in data.items():
             setattr(self.player, k, v.get('col1'))
-         return super().post()
+        return super().post()
 
-    template_name = 'q/Pictures.html'
+
+template_name = 'q/Pictures.html'
 
 page_sequence = [
     # Income,
