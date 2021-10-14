@@ -49,8 +49,9 @@ class AltruismAndTrust(Page):
         ready_help = data.get('ready_help')
         self.player.ready_help = ready_help
         altruism = data.get('altruism')
-        for k, v in altruism.items():
-            setattr(self.player, k, v.get('col1'))
+        if altruism:
+            for k, v in altruism.items():
+                setattr(self.player, k, v.get('col1'))
         return super().post()
 
 
@@ -102,18 +103,15 @@ class CityInteractionsTrustDisappointed(Page):
 
 class ChildrenQualities(Page):
     template_name = 'q/ChildrenQualities.html'
-    # form_fields = ["good_manners",
-    #                "independence",
-    #                "hard_work",
-    #                "responsibility",
-    #                "imagination",
-    #                "thrift",
-    #                "determination",
-    #                "religious",
-    #                "unselfishness",
-    #                "obedience",
-    #                ]
 
+    def post(self):
+        data = json.loads(self.request.POST.get('surveyholder')).get('children_qualities')
+        if data:
+            for i in data:
+                if hasattr(self.player, i):
+                    setattr(self.player, i, 1)
+        print(data,'=======')
+        return super().post()
 page_sequence = [
     # Income,
     # AltruismAndTrust,
@@ -121,7 +119,7 @@ page_sequence = [
     # Risk,
     # Patience,
     # SES,
-    ChildrenQualities,
+    # ChildrenQualities,
     CityInteractionsTrustPaid, #TODO
     CityInteractionsTrustDisappointed
 ]
