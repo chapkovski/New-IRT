@@ -39,6 +39,8 @@ class IncomeScale(Page):
         data = json.loads(self.request.POST.get('surveyholder')).get('income_scale')
         self.player.income_scale = data
         return super().post()
+
+
 class IncomeScaleFamily(Page):
     template_name = 'q/IncomeScaleFamily.html'
 
@@ -46,6 +48,35 @@ class IncomeScaleFamily(Page):
         data = json.loads(self.request.POST.get('surveyholder')).get('income_scale_family')
         self.player.income_scale_family = data
         return super().post()
+
+
+class Lits2020(Page):
+    template_name = 'q/Lits2020.html'
+
+    def vars_for_template(self):
+        items = [
+            dict(name='lits_equal',
+                 left="Incomes should be made more equal",
+                 right="We need larger income differences as incentives for individual effort"),
+            dict(name='lits_ownership', left="Private ownership of business and industry should be increased",
+                 right="Government ownership of business and industry should be increased"),
+            dict(name='lits_competition',
+                 left="Competition is good. It stimulates people to word hard and develop new ideas",
+                 right="Competition is harmful. It brings out the worse in people"),
+            dict(name='lits_obey', left="People should obey the law without exception",
+                 right="Therea are times when people hoave good reasons to break the law", ),
+            dict(name='lits_authorities',
+                 left='As citizens, we should be more active in questioning the actions of our authorities',
+                 right='In our country today, we should show more sepcect for our authoriteies'),
+            dict(name='lits_wealthy',
+                 left="There is no problem with the influence of wealthy individuals on the way government is run in this country",
+                 right="Wealthy individuals often use their influence on government for their own interests and there need to be stricter rules to prevent this."),
+            dict(name='lits_party',
+                 left="Financial support by companies to political parties and candidates should be banned completely",
+                 right="Tere should be no limits on financial support by companies to political parties or candidates")
+
+        ]
+        return dict(choices=range(1, 11), items=items)
 
 
 class Big5(Page):
@@ -148,7 +179,7 @@ page_sequence = [
     IncomeScaleFamily,
     IncomePyramid,
     IncomePyramidRegional,
-
+    Lits2020,
     AltruismAndTrust,
     Big5,
     Risk,
