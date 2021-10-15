@@ -1,0 +1,76 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Income Scale
+{% endblock %}
+
+
+{% block content %}
+    <style>
+        label.btn.btn-default.btn-secondary.active {
+            background: yellow;
+            color: black;
+        }
+
+        .btn-group fieldset {
+            display: flex !important;
+            flex-direction: column;
+            width:100%
+        }
+.btn-group {
+    width: 100%;
+}
+        label.btn.btn-default.btn-secondary {
+            display: flex !important;
+            flex-direction: column;
+        }
+
+    </style>
+    <script src="https://unpkg.com/survey-jquery@1.8.70/survey.jquery.min.js"></script>
+    <link href="https://unpkg.com/survey-core@1.8.72/modern.min.css" type="text/css" rel="stylesheet"/>
+    <div id="surveyElement" style="display:inline-block;width:100%;"></div>
+    <div id="surveyResult"></div>
+    <input type="hidden" id="surveyholder" name="surveyholder">
+    <script>
+        Survey.defaultBootstrapCss.navigationButton = "btn-primary btn-lg";
+        Survey
+            .StylesManager
+            .applyTheme("bootstrap");
+
+        var json = {
+            requiredText: '',
+            showQuestionNumbers: "off",
+            showCompletedPage: false,
+            completeText: "Next",
+            questions: [
+                {
+                    type: "rating",
+                    name: "income_scale_family",
+                    title: "And if you think about the family that you grew up in, where did they fit in then?",
+
+                    rateMin: 0,
+                    rateMax: 10,
+                    minRateDescription: "Lowest position ",
+                    maxRateDescription: "Highest position"
+                },
+            ]
+        };
+
+        window.survey = new Survey.Model(json);
+
+        survey
+            .onComplete
+            .add(function (sender) {
+                document
+                $('#surveyholder').val(JSON.stringify(sender.data, null, 3))
+                $('#form').submit()
+                ;
+            });
+
+        $("#surveyElement").Survey({model: survey});
+        ;
+    </script>
+
+
+{% endblock %}
