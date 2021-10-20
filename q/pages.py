@@ -16,20 +16,28 @@ class Page(oTreePage):
 class SES(Page):
     form_fields = ["gender",
                    "smoke",
+                   "income",
+                   "fin_situation_change",
                    "best_intentions",
-                   "fast_drive", ]
+                   "fast_drive",
+                   "general_trust",
+                   ]
 
 
 class Income(Page):
     form_fields = [
-        "income",
-        "fin_situation_change",
         "income_diff",
         "reduce_income_diff",
         "regional_diff",
         "regional_average_income",
         "regional_income_changed",
         "relative_income", ]
+
+
+class City(Page):
+    form_fields = [
+        "your_city",
+    ]
 
 
 class IncomeScale(Page):
@@ -126,26 +134,33 @@ class Patience(Page):
     template_name = 'q/Patience.html'
 
 
-class CityInteractionsTrustDisappointed(Page):
-    def post(self):
-        data = json.loads(self.request.POST.get('surveyholder')).get('trust_disappointed')
-        if data:
-            for k, v in data.items():
-                setattr(self.player, k, v.get('col1'))
-        return super().post()
-
-    template_name = 'q/CityInteractionsTrustDisappointed.html'
+class Demographics(Page):
+    form_fields = [
+        "years_lived_current_city",
+        "years_lived_birth_city",
+        "lived_other_city"
+    ]
 
 
-class TrustPaidBack(Page):
-    def post(self):
-        data = json.loads(self.request.POST.get('surveyholder')).get('trust_paid_back')
-        if data:
-            for k, v in data.items():
-                setattr(self.player, k, v.get('col1'))
-        return super().post()
+# class CityInteractionsTrustDisappointed(Page):
+#    def post(self):
+#       data = json.loads(self.request.POST.get('surveyholder')).get('trust_disappointed')
+#       if data:
+#           for k, v in data.items():
+#               setattr(self.player, k, v.get('col1'))
+#      return super().post()
 
-    template_name = 'q/TrustPaidBack.html'
+#  template_name = 'q/CityInteractionsTrustDisappointed.html'
+
+# class TrustPaidBack(Page):
+# def post(self):
+#     data = json.loads(self.request.POST.get('surveyholder')).get('trust_paid_back')
+#     if data:
+#         for k, v in data.items():
+#             setattr(self.player, k, v.get('col1'))
+#     return super().post()
+
+#  template_name = 'q/TrustPaidBack.html'
 
 
 class ChildrenQualities(Page):
@@ -174,6 +189,7 @@ class IncomePyramidRegional(Page):
 
 
 page_sequence = [
+    City,
     Income,
     IncomeScale,
     IncomeScaleFamily,
@@ -181,12 +197,10 @@ page_sequence = [
     IncomePyramidRegional,
     Lits2020,
     AltruismAndTrust,
+    Patience,
     Big5,
     Risk,
-    Patience,
-    SES,
     ChildrenQualities,
-    TrustPaidBack,
-    CityInteractionsTrustDisappointed,
-
+    Demographics,
+    SES,
 ]
