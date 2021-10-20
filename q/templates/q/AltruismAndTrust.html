@@ -59,23 +59,15 @@
 
                 },
                 {
-                    type: "matrixdropdown",
+                    type: "matrix",
                     name: "altruism",
                     title: " ",
+                    rowsOrder: 'random',
                     titleLocation: "hidden",
                     columns: [
-                        {
-                            name: "col1",
-                            cellType: "radiogroup",
-                            colCount: 0,
-                            isRequired: false,
-                            showInMultipleColumns: true,
-                            choices: [
-                                {value: 0, text: "No"},
-                                {value: 1, text: "Yes"},
-                                {value: 999, text: "Hard to say"}]
-                        }
-                    ],
+                        {value: 0, text: "No"},
+                        {value: 1, text: "Yes"},
+                        {value: 999, text: "Hard to say"}],
                     rows: [
                         {
                             value: "donated_money",

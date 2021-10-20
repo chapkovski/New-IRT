@@ -13,7 +13,6 @@ from django.utils.translation import gettext_lazy as _
 
 from .widgets import LikertWidget
 
-
 doc = """
  Questionnaire for new IRT project. 
 """
@@ -137,6 +136,27 @@ class Constants(BaseConstants):
         [2, _('No interaction')],
         HARD_TO_SAY_CHOICE
     ]
+    general_trust_choices = [
+        [0, _('You have to be very careful with other people')],
+        [1, _('Most people can be quite trusted')],
+        HARD_TO_SAY_CHOICE
+    ]
+    cities = [
+        [1, _('Vladikavkaz')],
+        [2, _('Volgograd')],
+        [3, _('Irkutsk')],
+        [4, _('Krasnodar')],
+        [5, _('Krasnoyarsk')],
+        [6, _('Maikop')],
+        [7, _('Moscow')],
+        [8, _('Nizhniy Novgorod')],
+        [9, _('Omsk')],
+        [10, _('Samara')],
+        [11, _('St. Petersburg')],
+        [12, _('Ufa')],
+        [13, _('Chelyabinsk')],
+    ]
+
 
 class Subsession(BaseSubsession):
     pass
@@ -144,6 +164,7 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     pass
+
 
 class Player(BasePlayer):
     gender = models.BooleanField(initial=None,
@@ -157,6 +178,13 @@ class Player(BasePlayer):
         choices=Constants.smoke_choices,
         widget=widgets.RadioSelect()
     )
+    general_trust = models.PositiveIntegerField(
+        label=_(
+            'Do you think in general most people can be trusted, or does it never hurt to be cautious when dealing with other people?'),
+        choices=Constants.general_trust_choices,
+        widget=widgets.RadioSelect()
+    )
+
     best_intentions = models.PositiveIntegerField(
         label=_('I assume that people have only the best intentions'),
         choices=Constants.BEST_INTENSIONS_CHOICES,
@@ -167,9 +195,6 @@ class Player(BasePlayer):
         choices=Constants.fast_drive_choices,
         widget=widgets.RadioSelect()
     )
-
-
-
 
     income_diff = models.PositiveIntegerField(
         label=_('Differences in income in Russia are too large'),
@@ -225,15 +250,15 @@ class Player(BasePlayer):
     # Patience_10
     patience_1 = models.IntegerField(label=_(
         'How willing are you to give up something that is beneficial for you today in order to benefit more from that in the future?'),
-                                        choices=Constants.Patience_10, widget=widgets.RadioSelect)
+        choices=Constants.Patience_10, widget=widgets.RadioSelect)
     patience_2 = models.IntegerField(label=_(
         ' How willing are you to punish someone who treats others unfairly, even if there may be costs for you?'),
-                                        choices=Constants.Patience_10, widget=widgets.RadioSelect)
+        choices=Constants.Patience_10, widget=widgets.RadioSelect)
     patience_3 = models.IntegerField(label=_('When someone does me a favor, I am willing to return it'),
-                                        choices=Constants.Patience_10, widget=widgets.RadioSelect)
+                                     choices=Constants.Patience_10, widget=widgets.RadioSelect)
     patience_4 = models.IntegerField(label=_(
         'If I have been treated unfairly, I will retaliate at the first opportunity, even if it costs me a lot'),
-                                        choices=Constants.Patience_10, widget=widgets.RadioSelect)
+        choices=Constants.Patience_10, widget=widgets.RadioSelect)
 
     # Risk
     risk_general = models.PositiveIntegerField(
@@ -296,7 +321,7 @@ class Player(BasePlayer):
     income_scale = models.IntegerField()
     income_scale_family = models.IntegerField()
     income_pyramid = models.IntegerField()
-    income_pyramid_regional= models.IntegerField()
+    income_pyramid_regional = models.IntegerField()
     # Yes/No questions
     donated_money = models.IntegerField(label=_('Have you donated money in the previous 12 months?'),
                                         choices=Constants.Yes_No, widget=widgets.RadioSelect)
@@ -340,40 +365,39 @@ class Player(BasePlayer):
     donated_blood = models.IntegerField(label=_('Did you donate blood during the last 6 months?'),
                                         choices=Constants.Yes_No, widget=widgets.RadioSelect)
 
-    #Children qualities
+    # Children qualities
     good_manners = models.IntegerField(label=_(''),
-                                        choices=Constants.Yes_No, widget=widgets.RadioSelect)
+                                       choices=Constants.Yes_No, widget=widgets.RadioSelect)
 
     independence = models.IntegerField(label=_(''),
                                        choices=Constants.Yes_No, widget=widgets.RadioSelect)
 
     hard_work = models.IntegerField(label=_(''),
-                                       choices=Constants.Yes_No, widget=widgets.RadioSelect)
+                                    choices=Constants.Yes_No, widget=widgets.RadioSelect)
 
     responsibility = models.IntegerField(label=_(''),
-                                       choices=Constants.Yes_No, widget=widgets.RadioSelect)
+                                         choices=Constants.Yes_No, widget=widgets.RadioSelect)
 
     imagination = models.IntegerField(label=_(''),
-                                       choices=Constants.Yes_No, widget=widgets.RadioSelect)
+                                      choices=Constants.Yes_No, widget=widgets.RadioSelect)
 
     respectful_and_tolerant = models.IntegerField(label=_(''),
-                                       choices=Constants.Yes_No, widget=widgets.RadioSelect)
+                                                  choices=Constants.Yes_No, widget=widgets.RadioSelect)
 
     thrift = models.IntegerField(label=_(''),
-                                       choices=Constants.Yes_No, widget=widgets.RadioSelect)
+                                 choices=Constants.Yes_No, widget=widgets.RadioSelect)
 
     determination = models.IntegerField(label=_(''),
-                                       choices=Constants.Yes_No, widget=widgets.RadioSelect)
+                                        choices=Constants.Yes_No, widget=widgets.RadioSelect)
 
     religious = models.IntegerField(label=_(''),
-                                       choices=Constants.Yes_No, widget=widgets.RadioSelect)
+                                    choices=Constants.Yes_No, widget=widgets.RadioSelect)
 
     unselfishness = models.IntegerField(label=_(''),
-                                       choices=Constants.Yes_No, widget=widgets.RadioSelect)
+                                        choices=Constants.Yes_No, widget=widgets.RadioSelect)
 
     obedience = models.IntegerField(label=_(''),
-                                       choices=Constants.Yes_No, widget=widgets.RadioSelect)
-
+                                    choices=Constants.Yes_No, widget=widgets.RadioSelect)
 
     # Big 5
     big5_1 = models.IntegerField(label=_('I see myself as someone who is reserved'),
@@ -399,7 +423,7 @@ class Player(BasePlayer):
     big5_11 = models.IntegerField(label=_('I see myself as someone who is reserved'),
                                   choices=Constants.agreement_choices_5DNK, widget=widgets.RadioSelect)
 
-  # City trust paid back
+    # City trust paid back
     trust_paid_back_ARK = models.IntegerField(label=_(
         'Was your trust paid back, when in the last 6 months you trusted someone from Arkhangelsk?'),
         choices=Constants.City_interaction, widget=widgets.RadioSelect)
@@ -496,3 +520,20 @@ class Player(BasePlayer):
     trust_disappointed_VOR = models.IntegerField(label=_(
         'In the last 6 months, have you disappointed someone from Voronezh who has trusted you?'),
         choices=Constants.City_interaction, widget=widgets.RadioSelect)
+
+    # Demographics
+    years_lived_current_city = models.PositiveIntegerField(
+        label=_(
+            'Please briefly consider the city in which you lived in July 2020. How many years have you already lived in the named city at this time (July 2020): '),
+    )
+    years_lived_birth_city = models.PositiveIntegerField(
+        label=_(
+            'After your birth, how many years did you live in the city of your birth?'),
+    )
+    lived_other_city = models.IntegerField(label=_(
+        'Have you lived in any other city in October 2020?'),
+        choices=Constants.Yes_No, widget=widgets.RadioSelect)
+
+    your_city = models.IntegerField(label=_(
+        'Please, choose the city you live in:'),
+        choices=Constants.cities, widget=widgets.RadioSelect)

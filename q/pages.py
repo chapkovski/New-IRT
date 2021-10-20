@@ -188,6 +188,7 @@ class IncomePyramidRegional(Page):
     form_fields = ['income_pyramid_regional']
 
 
+
 page_sequence = [
     City,
     Income,
