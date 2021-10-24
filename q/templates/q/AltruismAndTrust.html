@@ -8,10 +8,6 @@
 
 {% block content %}
     <style>
-        label.btn.btn-default.btn-secondary.active {
-            background: yellow;
-            color: black;
-        }
 
         .btn-group fieldset {
             display: flex !important;
@@ -31,6 +27,8 @@
             margin: 5px
         }
 
+
+
     </style>
     <script src="https://unpkg.com/survey-jquery@1.8.70/survey.jquery.min.js"></script>
 
@@ -49,15 +47,7 @@
             showCompletedPage: false,
             completeText: "Next",
             questions: [
-                {
-                    type: "rating",
-                    name: "ready_help",
-                    title: "Willingness to spend money even at not return:",
-                    description: 'Please indicate your answer on a scale from 0 to 10. A 0 means “Completely unwilling to spend money,” and a 10 means “Very willing to spend money',
-                    rateMin: 0,
-                    rateMax: 10,
 
-                },
                 {
                     type: "matrix",
                     name: "altruism",

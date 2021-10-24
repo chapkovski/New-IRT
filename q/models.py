@@ -311,7 +311,7 @@ class Player(BasePlayer):
     )
 
     ready_help = models.IntegerField(
-        label=_('Willingness to spend money even at not return'),
+        label=_('Willingness to spend money even at not return. Please indicate your answer on a scale from 0 to 10. A 0 means “Completely unwilling to spend money,” and a 10 means “Very willing to spend money '),
         choices=Constants.ready_help_choices,
         widget=widgets.RadioSelect)
 
@@ -533,6 +533,8 @@ class Player(BasePlayer):
     lived_other_city = models.IntegerField(label=_(
         'Have you lived in any other city in October 2020?'),
         choices=Constants.Yes_No, widget=widgets.RadioSelect)
+    previous_experiment = models.LongStringField(label="""
+     In another toloka experiment, you have interacted with participants from other cities. Do you remember what the experiment was about? Do you remember any of the other cities where the participants were located you have interacted with?""")
 
     your_city = models.IntegerField(label=_(
         'Please, choose the city you live in:'),
