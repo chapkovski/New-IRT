@@ -142,19 +142,29 @@ class Constants(BaseConstants):
         HARD_TO_SAY_CHOICE
     ]
     cities = [
-        [1, _('Vladikavkaz')],
-        [2, _('Volgograd')],
-        [3, _('Irkutsk')],
-        [4, _('Krasnodar')],
-        [5, _('Krasnoyarsk')],
-        [6, _('Maikop')],
+        [1, _('Voronezh')],
+        [2, _('Vladivostok')],
+        [3, _('St. Petersburg')],
+        [4, _('Rostov-na-Donu')],
+        [5, _('Perm')],
+        [6, _('Novosibirsk')],
         [7, _('Moscow')],
-        [8, _('Nizhniy Novgorod')],
-        [9, _('Omsk')],
-        [10, _('Samara')],
-        [11, _('St. Petersburg')],
-        [12, _('Ufa')],
-        [13, _('Chelyabinsk')],
+        [8, _('Makhachkala')],
+        [9, _('Khabarovsk')],
+        [10, _('Kazan')],
+        [11, _('Ekaterinburg')],
+        [12, _('Arkhangelsk')],
+
+
+
+
+
+
+
+
+
+
+
     ]
 
 
