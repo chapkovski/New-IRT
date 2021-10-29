@@ -121,7 +121,7 @@ class AltruismAndTrust(Page):
         altruism = data.get('altruism')
         if altruism:
             for k, v in altruism.items():
-                setattr(self.player, k, v.get('col1'))
+                setattr(self.player, k, v)
         return super().post()
 
 
@@ -155,26 +155,6 @@ class Demographics(Page):
         'previous_experiment',
     ]
 
-
-# class CityInteractionsTrustDisappointed(Page):
-#    def post(self):
-#       data = json.loads(self.request.POST.get('surveyholder')).get('trust_disappointed')
-#       if data:
-#           for k, v in data.items():
-#               setattr(self.player, k, v.get('col1'))
-#      return super().post()
-
-#  template_name = 'q/CityInteractionsTrustDisappointed.html'
-
-# class TrustPaidBack(Page):
-# def post(self):
-#     data = json.loads(self.request.POST.get('surveyholder')).get('trust_paid_back')
-#     if data:
-#         for k, v in data.items():
-#             setattr(self.player, k, v.get('col1'))
-#     return super().post()
-
-#  template_name = 'q/TrustPaidBack.html'
 
 
 class ChildrenQualities(Page):
