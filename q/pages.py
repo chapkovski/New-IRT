@@ -31,7 +31,7 @@ class SES(Page):
                    "income",
                    "fin_situation_change",
                    "best_intentions",
-                   "ready_help",
+
                    "fast_drive",
                    "general_trust",
                    ]
@@ -82,7 +82,7 @@ class Lits2020(Page):
             dict(name='lits_ownership', left="Private ownership of business and industry should be increased",
                  right="Government ownership of business and industry should be increased"),
             dict(name='lits_competition',
-                 left="Competition is good. It stimulates people to word hard and develop new ideas",
+                 left="Competition is good. It stimulates people to work hard and develop new ideas",
                  right="Competition is harmful. It brings out the worse in people"),
             dict(name='lits_obey', left="People should obey the law without exception",
                  right="There are times when people have good reasons to break the law", ),
@@ -153,6 +153,7 @@ class Demographics(Page):
         "years_lived_birth_city",
         "lived_other_city",
         'previous_experiment',
+        "previous_experiment_cities"
     ]
 
 
