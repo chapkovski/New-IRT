@@ -527,7 +527,7 @@ class Player(BasePlayer):
     # Demographics
     years_lived_current_city = models.PositiveIntegerField(
         label=_(
-            'Пожалуйста, припомните город, в котором Вы жили в июле 2020 года. Сколько лет Вы уже прожили в названном городе на данный момент (июль 2020 года): '),
+            'Пожалуйста, припомните город, в котором Вы жили в июле 2020 года. Сколько лет Вы уже прожили в названном городе на июль 2020 года?'),
     )
     years_lived_birth_city = models.PositiveIntegerField(
         label=_(
@@ -537,7 +537,7 @@ class Player(BasePlayer):
         'Жили ли Вы в каком-либо другом городе в октябре 2020 года?'),
         choices=Constants.Yes_No, widget=widgets.RadioSelect)
     previous_experiment = models.LongStringField(label="""
-     В другом эксперименте "Толока" Вы взаимодействовали с участниками из других городов. Вы помните, в чем заключался эксперимент?""")
+     В другом эксперименте на "Толоке" Вы взаимодействовали с участниками из других городов. Вы помните, в чем заключался эксперимент?""")
     previous_experiment_cities = models.LongStringField(label="""Помните ли Вы какие-либо другие города, откуда были участники, с которыми Вы взаимодействовали?""")
 
     your_city = models.IntegerField(label=_(
