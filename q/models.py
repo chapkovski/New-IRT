@@ -37,7 +37,7 @@ class Constants(BaseConstants):
         [8, '8'],
         [9, '9'],
         [10, _('10 - Totally agree')],
-        HARD_TO_SAY_CHOICE
+
     ]
 
     smoke_choices = [
@@ -142,19 +142,20 @@ class Constants(BaseConstants):
         HARD_TO_SAY_CHOICE
     ]
     cities = [
-        [1, _('Vladikavkaz')],
-        [2, _('Volgograd')],
-        [3, _('Irkutsk')],
-        [4, _('Krasnodar')],
-        [5, _('Krasnoyarsk')],
-        [6, _('Maikop')],
+        [1, _('Voronezh')],
+        [2, _('Vladivostok')],
+        [3, _('St. Petersburg')],
+        [4, _('Rostov-na-Donu')],
+        [5, _('Perm')],
+        [6, _('Novosibirsk')],
         [7, _('Moscow')],
-        [8, _('Nizhniy Novgorod')],
-        [9, _('Omsk')],
-        [10, _('Samara')],
-        [11, _('St. Petersburg')],
-        [12, _('Ufa')],
-        [13, _('Chelyabinsk')],
+        [8, _('Makhachkala')],
+        [9, _('Khabarovsk')],
+        [10, _('Kazan')],
+        [11, _('Ekaterinburg')],
+        [12, _('Arkhangelsk')],
+        [13, _('Other')],
+
     ]
 
 
@@ -219,7 +220,7 @@ class Player(BasePlayer):
         choices=Constants.income_choices,
         widget=widgets.RadioSelect,
         label=_(
-            """Did your family financial situation change over the last year? - How would you have answered the previous question a year ago?""")
+            """Did the financial situation of your family change over the last 12 months? - How would you have answered the previous question a year ago?""")
     )
 
     regional_average_income = models.PositiveIntegerField(
@@ -236,7 +237,7 @@ class Player(BasePlayer):
 
     regional_income_changed = models.PositiveIntegerField(
         label=_(
-            'In your opinion, did the average monthly income of the residents of your region change over the last year?'),
+            'In your opinion, did the average monthly income of the residents of your region change over the last 12 months?'),
         choices=Constants.regional_income_changed_choices,
         widget=widgets.RadioSelect()
     )
@@ -259,6 +260,7 @@ class Player(BasePlayer):
     patience_4 = models.IntegerField(label=_(
         'If I have been treated unfairly, I will retaliate at the first opportunity, even if it costs me a lot'),
         choices=Constants.Patience_10, widget=widgets.RadioSelect)
+    patience_5 = models.IntegerField(choices=Constants.Patience_10)
 
     # Risk
     risk_general = models.PositiveIntegerField(
@@ -311,7 +313,8 @@ class Player(BasePlayer):
     )
 
     ready_help = models.IntegerField(
-        label=_('Willingness to spend money even at not return'),
+        label=_(
+            'Willingness to spend money even at not return. Please indicate your answer on a scale from 0 to 10. A 0 means “Completely unwilling to spend money,” and a 10 means “Very willing to spend money '),
         choices=Constants.ready_help_choices,
         widget=widgets.RadioSelect)
 
@@ -533,7 +536,10 @@ class Player(BasePlayer):
     lived_other_city = models.IntegerField(label=_(
         'Have you lived in any other city in October 2020?'),
         choices=Constants.Yes_No, widget=widgets.RadioSelect)
+    previous_experiment = models.LongStringField(label="""
+     In another Toloka experiment, you have interacted with participants from other cities. Do you remember what the experiment was about? """)
+    previous_experiment_cities = models.LongStringField(label="""Do you remember any of the other cities where the participants were located you have interacted with?""")
 
     your_city = models.IntegerField(label=_(
-        'Please, choose the city you live in:'),
+        'What is the city you live in?'),
         choices=Constants.cities, widget=widgets.RadioSelect)

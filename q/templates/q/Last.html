@@ -1,0 +1,28 @@
+{% extends "global/Page.html" %}
+{% load otree  i18n %}
+{% block index %}{% endblock %}
+{% block visibletitle %}
+    Thank you for your participation!
+{% endblock %}
+{% block progress %}
+
+{% endblock %}
+{% block content %}
+
+    <div class="card">
+        <div class="card-body">
+            <div class="lead text-center">Your code
+                <div class="text-center"><span class="font-weight-bold display-4">{{ participant.code }}</span>
+                </div>
+            </div>
+            <div class="lead my-3  ">
+                For the task to be considered completed, please copy and paste it to the task page in Toloka.
+
+            </div>
+        </div>
+    </div>
+
+    <button class="d-none">Next</button>
+{% endblock %}
+
+
