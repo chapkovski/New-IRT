@@ -8,7 +8,10 @@
 
 {% block content %}
    <style>
-
+    label.btn.btn-default.btn-secondary.active {
+        background: yellow;
+        color: black;
+    }
 
 </style>
 <script src="https://unpkg.com/survey-jquery@1.8.70/survey.jquery.min.js"></script>
@@ -28,12 +31,12 @@
                 hideNumber: true,
                 "type": "matrixdropdown",
                 "name": "patience",
-                "title": "We now ask you for your willingness to act in a certain way.",
-  {#"titleLocation": "hidden",#}
+                "title": "Please indicate your answer on a scale from 0 to 10. A 0 means “Totally unwilling to so” and a 10 means “Totally willing to do so”",
+  "titleLocation": "hidden",
                 "columns": [
                     {
                         name: "col1",
-                        title: 'Please indicate your answer on a scale from 0 to 10. A 0 means “Totally unwilling to  do so” and a 10 means “Totally willing to do so”',
+                        title: 'Please indicate your answer on a scale from 0 to 10. A 0 means “Totally unwilling to so” and a 10 means “Totally willing to do so”',
                          "titleLocation": "hidden",
                         cellType: "rating",
                         "rateMin": 0,
@@ -47,7 +50,6 @@
                     {value: "patience_2", text: ' How willing are you to punish someone who treats others unfairly, even if there may be costs for you?'},
                     {value: "patience_3", text: 'When someone does me a favor, I am willing to return it'},
                     {value: "patience_4", text: 'If I have been treated unfairly, I will retaliate at the first opportunity, even if it costs me a lot'},
-                    {value: "patience_5", text: 'How willing are you to give to good causes without expecting anything in return?'},
 
 
                 ]
