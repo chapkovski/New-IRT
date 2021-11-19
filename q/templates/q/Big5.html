@@ -8,11 +8,18 @@
 
 {% block content %}
     <style>
+    .sv_main span{word-break: normal!important;
+             }
         label.btn.btn-default.btn-secondary.active {
             background: yellow;
             color: black;
         }
-
+         thead tr{position: sticky}
+        thead tr th {
+            word-break: normal!important;
+            font-size: 0.8rem;
+        }
+        tbody tr{font-size: 1rem!important;}
     </style>
     <script src="https://unpkg.com/survey-jquery@1.8.70/survey.jquery.min.js"></script>
 

@@ -38,9 +38,10 @@ class SES(Page):
                    "income",
                    "fin_situation_change",
                    "best_intentions",
-
                    "fast_drive",
                    "general_trust",
+                   "plans_to_move_WP85",
+                   "where_to_move_WP3120",
                    ]
 
 
@@ -80,18 +81,29 @@ class IncomeScaleFamily(Page):
 
 class Lits2020(Page):
     template_name = 'q/Lits2020.html'
+    form_model = 'player'
+    form_fields = [
+        'lits_equal',
+        'lits_ownership',
+        'lits_competition',
+        'lits_obey',
+        'lits_authorities',
+        'lits_wealthy',
+        'lits_party'
+
+    ]
 
     def vars_for_template(self):
         items = [
             dict(name='lits_equal',
-                 left="Доходы должны быть более равными",
-                 right="Нам нужны большие различия в доходах в качестве стимулов для индивидуальных усилий"),
+                 left="Нужно уменьшить разницу доходов",
+                 right="Нужно увеличить разницу доходов, чтобы люди прилагали больше усилий"),
             dict(name='lits_ownership',
-                 left="Доля частной собственности в бизнесе и промышленности должна быть увеличена",
-                 right="Доля государственной собственности в бизнесе и промышленности должна быть увеличена"),
+                 left="Долю частной собственности в бизнесе и промышленности следует увеличить",
+                 right="Нужно увеличить долю государственной собственности в бизнесе и промышленности"),
             dict(name='lits_competition',
-                 left="Конкуренция  это благо, поскольку она побуждает людей усерднее трудиться и разрабатывать новые идеи",
-                 right="Конкуренция вредна, поскольку она пробуждает в людях худшие свойства"),
+                 left="Конкуренция - это хорошо. Она побуждает людей напряженно работать и развивать новые идеи.",
+                 right="Конкуренция вредна: она пробуждает у людей их худшие качества."),
             dict(name='lits_obey', left="Люди должны подчиняться закону без исключения",
                  right="Бывают моменты, когда у людей есть веские причины нарушать закон", ),
             dict(name='lits_authorities',
@@ -124,8 +136,6 @@ class AltruismAndTrust(Page):
 
     def post(self):
         data = json.loads(self.request.POST.get('surveyholder'))
-        ready_help = data.get('ready_help')
-        self.player.ready_help = ready_help
         altruism = data.get('altruism')
         if altruism:
             for k, v in altruism.items():
@@ -174,7 +184,6 @@ class ChildrenQualities(Page):
             for i in data:
                 if hasattr(self.player, i):
                     setattr(self.player, i, 1)
-        print(data, '=======')
         return super().post()
 
 

@@ -13,7 +13,7 @@
     <div class="card my-3">
         <div class="card-body">
             <div class="card-text fw-bold">
-                Как бы Вы оценили свои взгляды по этой шкале? 1 означает, что Вы полностью согласны с утверждением слева;
+                Оцените пожалуйста свои взгляды, выбрав отметку на шкале, где 1 означает, что Вы полностью согласны с утверждением слева;
                 10 означает, что Вы полностью согласны с утверждением справа; и если Ваши взгляды находятся где-то посередине,
                 Вы можете выбрать любое число между 1 и 10.
             </div>
@@ -29,7 +29,7 @@
                     <div class="btn-group" role="group" aria-label="Basic outlined example">
                         {% for choice in choices %}
                             <input type="radio" class="btn-check" name="{{ item.name }}"
-                                   id="{{ item.name }}_{{ choice }}"
+                                   id="{{ item.name }}_{{ choice }}" value="{{ choice }}"
                                    autocomplete="off"  required
                             >
                             <label class="btn btn-outline-primary"
