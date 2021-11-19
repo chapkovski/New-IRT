@@ -22,8 +22,15 @@ class Page(oTreePage):
 
 class Consent(Page):
     template_name = 'q/Consent.html'
+
+
+class Welcome(Page):
+    template_name = 'q/Welcome.html'
+
+
 class Last(Page):
     template_name = 'q/Last.html'
+
 
 class SES(Page):
     form_fields = ["gender",
@@ -158,7 +165,6 @@ class Demographics(Page):
     ]
 
 
-
 class ChildrenQualities(Page):
     template_name = 'q/ChildrenQualities.html'
 
@@ -184,9 +190,9 @@ class IncomePyramidRegional(Page):
     form_fields = ['income_pyramid_regional']
 
 
-
 page_sequence = [
     Consent,
+    Welcome,
     City,
     Income,
     IncomeScale,

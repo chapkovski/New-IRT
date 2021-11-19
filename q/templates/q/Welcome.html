@@ -1,0 +1,39 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% block index %}{% endblock %}
+{% block visibletitle %}
+    Добро пожаловать!
+{% endblock %}
+{% block content %}
+
+    <div class="card my-3">
+        <div class="card-body">
+            <div class="card-text">
+
+
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        На заполнение этого опроса у вас уйдет около {{ session.config.min_length }}, и мы просим Вас
+                        пройти его до конца
+
+                    </li>
+                    <li class="list-group-item"> Ваше вознаграждение за участие в
+                        размере {{ session.config.participation_fee }} будет выплачено
+                        Вам, как только Вы введете
+                        правильный код участника в окно интерфейса на последней странице исследования.
+                    </li>
+                    <li class="list-group-item">
+                        На все вопросы в исследовании и анкете нет правильных и неправильных ответов - отвечайте так как
+                        считаете нужным.
+                    </li>
+
+
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+    {% next_button %}
+{% endblock %}

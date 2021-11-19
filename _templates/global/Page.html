@@ -24,8 +24,8 @@ i removed many linebreaks to make output HTML cleaner
     <div class="otree-body container">
         <h2 class="otree-title page-header">
 
-        {% block index %}Страница {{ page_index }} из {{ maxpages }}.{% endblock %}
-        {% block visibletitle %}{% endblock %}
+            <div class="d-none"> {% block index %}Страница {{ page_index }} из {{ maxpages }}.{% endblock %}</div>
+            {% block visibletitle %}{% endblock %}
             <div class="d-none">{% block title %}{% endblock %}</div>
         </h2>
         {% if view.remaining_timeout_seconds != None %}
@@ -42,7 +42,7 @@ i removed many linebreaks to make output HTML cleaner
             <div class="_otree-content">{% block content %}{% endblock %}</div>
         </form>
         <br/>
-       {% include 'global/footer.html' %}
+        {% include 'global/footer.html' %}
         {# need the default:False for projects with old MTurkLandingPage #}
         {% if view.is_debug|default:False %}
             <br>
@@ -71,7 +71,10 @@ i removed many linebreaks to make output HTML cleaner
 {% endblock %}
 {% block global_styles %}
     <style>
-    label.col-form-label{font-weight: bold}
+        label.col-form-label {
+            font-weight: bold
+        }
+
         label.btn.btn-default.btn-secondary.active {
             color: #fff;
             background-color: #0d6efd;

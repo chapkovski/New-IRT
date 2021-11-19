@@ -187,7 +187,8 @@ class Player(BasePlayer):
     )
 
     best_intentions = models.PositiveIntegerField(
-        label=_('Я считаю, что люди имеют только лучшие намерения:'),
+        label='Насколько хорошо следующее утверждение описывает вас как личность? <br> <i>"Я считаю, что люди имеют только лучшие намерения"</i>'
+              '<br><small>Пожалуйста, дайте ответ по шкале от 0 до 10, где 0 означает “не описывает меня вообще,” а 10 означает “абсолютно верно меня описывает.”</small>',
         choices=Constants.BEST_INTENSIONS_CHOICES,
         widget=widgets.RadioSelect()
     )
