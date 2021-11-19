@@ -31,6 +31,10 @@
             margin: 5px
         }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> trans
     </style>
     <script src="https://unpkg.com/survey-jquery@1.8.70/survey.jquery.min.js"></script>
 
@@ -47,7 +51,8 @@
             requiredText: '',
             showQuestionNumbers: "off",
             showCompletedPage: false,
-            completeText: "Next",
+            completeText: "Далее",
+
             questions: [
                 {
                     type: "rating",
@@ -62,63 +67,75 @@
                     type: "matrix",
                     name: "altruism",
                     title: " ",
+<<<<<<< HEAD
                     rowsOrder: 'random',
+=======
+                    isAllRowRequired: true,
+                    isRequired: true,
+                    requiredErrorText: 'Пожалуйста, ответьте на вопрос',
+                    {#rowsOrder: 'random',#}
+>>>>>>> trans
                     titleLocation: "hidden",
                     columns: [
-                        {value: 0, text: "No"},
-                        {value: 1, text: "Yes"},
-                        {value: 999, text: "Hard to say"}],
+                        {value: 0, text: "Да"},
+                        {value: 1, text: "Нет"},
+                        {value: 999, text: "Затрудняюсь ответить"}],
                     rows: [
                         {
                             value: "donated_money",
-                            text: "Have you donated money in the previous 12 months?"
+                            text: "Жертвовали ли Вы деньги за предыдущие 12 месяцев?"
                         },
                         {
                             value: "count_on_relatives",
-                            text: "Do you have relatives or friends you can count on to help you whenever needed?"
+                            text: "Есть ли у Вас родственники или друзья, на помощь которых Вы можете рассчитывать в случае необходимости?"
                         },
                         {
                             value: "help_stranger",
-                            text: "Did you help a stranger in the previous 12 months who needed help?"
+                            text: "Помогали ли Вы незнакомцу, который нуждался в помощи, за предыдущие 12 месяцев?"
                         },
                         {
                             value: "self_employed",
+<<<<<<< HEAD
                             text: "Are you self-employed?"
+=======
+                            text: "Являетесь ли Вы в настоящее время самозанятым?"
+>>>>>>> trans
                         },
                         {
                             value: "own_business",
-                            text: "For those who are not self-employed: Are you planning to start your own business?"
+                            text: "Для тех, кто не является самозанятым: Планируете ли Вы начать свой собственный бизнес?"
                         },
                         {
                             value: "save_money",
-                            text: "Did you save any money in the previous 12 months?"
+                            text: "Сэкономили ли Вы какие-либо деньги за предыдущие 12 месяцев?"
                         },
                         {
                             value: "fin_help",
-                            text: "Did you send help (money or goods) to another individual in the previous 12 months?"
+                            text: "Помогали ли вы другому лицу (деньгами или вещами) в течение предыдущих 12 месяцев"
                         },
                         {
                             value: "vote_official",
-                            text: "Did you voice your opinion to a public official in the previous 12 months?"
+                            text: "Высказывали ли Вы свое мнение государственному должностному лицу в течение предыдущих 12 месяцев?"
                         },
                         {
                             value: "volunteer",
-                            text: "Did you voluntarily devote time to an organization in the previous 12 months?"
+                            text: "Посвящали ли Вы добровольно время какой-либо организации в течение предыдущих 12 месяцев?"
                         },
                         {
                             value: "police_confidence",
-                            text: "In the city or area where you live, do you have confidence in the local police force?"
+                            text: "В городе или районе, где Вы живете, доверяете ли Вы местной полиции?"
                         },
                         {
                             value: "safety",
-                            text: "Do you feel safe walking alone at night in the city or area where you live?"
+                            text: "Чувствуете ли Вы себя в безопасности, гуляя ночью в одиночестве по городу или району, где Вы живете?"
                         },
                         {
                             value: "stolen_money",
-                            text: "Has money or property been stolen from you or another household member within the last 12 months?"
+                            text: "Были ли украдены деньги или имущество у Вас или другого члена семьи в течение последних 12 месяцев?"
                         },
                         {
                             value: "used_trust",
+<<<<<<< HEAD
                             text: "Did someone take advantage of your trust in the last 6 months?"
                         },
                         {
@@ -132,6 +149,21 @@
                         {
                             value: "donated_blood",
                             text: "Did you donate blood during the last 6 months?"
+=======
+                            text: "Злоупотребил ли кто-нибудь Вашим доверием за последние 12 месяцев?"
+                        },
+                        {
+                            value: "reciprocated_trust",
+                            text: "За последние 12 месяцев, когда Вы кому-то доверяли, оправдалось ли Ваше доверие?"
+                        },
+                        {
+                            value: "disappointed_trust",
+                            text: "За последние 12 месяцев разочаровывали ли Вы кого-то, кто Вам доверял? "
+                        },
+                        {
+                            value: "donated_blood",
+                            text: "Вы сдавали донорскую кровь в течение последних 12 месяцев?"
+>>>>>>> trans
                         }
                     ]
                 }

@@ -64,11 +64,13 @@ class Lits2020(Page):
     def vars_for_template(self):
         items = [
             dict(name='lits_equal',
-                 left="Incomes should be made more equal",
-                 right="We need larger income differences as incentives for individual effort"),
-            dict(name='lits_ownership', left="Private ownership of business and industry should be increased",
-                 right="Government ownership of business and industry should be increased"),
+                 left="Доходы должны быть более равными",
+                 right="Нам нужны большие различия в доходах в качестве стимулов для индивидуальных усилий"),
+            dict(name='lits_ownership',
+                 left="Доля частной собственности в бизнесе и промышленности должна быть увеличена",
+                 right="Доля государственной собственности в бизнесе и промышленности должна быть увеличена"),
             dict(name='lits_competition',
+<<<<<<< HEAD
                  left="Competition is good. It stimulates people to word hard and develop new ideas",
                  right="Competition is harmful. It brings out the worse in people"),
             dict(name='lits_obey', left="People should obey the law without exception",
@@ -76,12 +78,26 @@ class Lits2020(Page):
             dict(name='lits_authorities',
                  left='As citizens, we should be more active in questioning the actions of our authorities',
                  right='In our country today, we should show more sepcect for our authoriteies'),
+=======
+                 left="Конкуренция  это благо, поскольку она побуждает людей усерднее трудиться и разрабатывать новые идеи",
+                 right="Конкуренция вредна, поскольку она пробуждает в людях худшие свойства"),
+            dict(name='lits_obey', left="Люди должны подчиняться закону без исключения",
+                 right="Бывают моменты, когда у людей есть веские причины нарушать закон", ),
+            dict(name='lits_authorities',
+                 left='Как граждане мы должны более активно подвергать сомнению действия наших властей',
+                 right='Сегодня в нашей стране мы должны проявлять больше уважения к нашим властям'),
+>>>>>>> trans
             dict(name='lits_wealthy',
-                 left="There is no problem with the influence of wealthy individuals on the way government is run in this country",
-                 right="Wealthy individuals often use their influence on government for their own interests and there need to be stricter rules to prevent this."),
+                 left="То, что богатые люди влияют на то, как правительство управляет этой страной, не является проблемой",
+                 right="Богатые люди часто используют свое влияние на правительство в своих собственных интересах, и для предотвращения этого необходимы более строгие правила"),
             dict(name='lits_party',
+<<<<<<< HEAD
                  left="Financial support by companies to political parties and candidates should be banned completely",
                  right="Tere should be no limits on financial support by companies to political parties or candidates")
+=======
+                 left="Финансовая поддержка политических партий и кандидатов, оказываемая частными компаниями, должна быть полностью запрещена",
+                 right="Не должно быть никаких ограничений на финансовую поддержку политических партий или кандидатов, оказываемую частными компаниями")
+>>>>>>> trans
 
         ]
         return dict(choices=range(1, 11), items=items)

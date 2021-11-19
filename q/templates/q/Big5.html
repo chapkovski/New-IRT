@@ -29,29 +29,35 @@
             requiredText: '',
             showQuestionNumbers: "off",
             showCompletedPage: false,
-            completeText: "Next",
+            completeText: "Далее    ",
             questions: [
                 {
                     type: "matrixdropdown",
                     name: "big5",
+<<<<<<< HEAD
                     title: "I see myself as someone who...",
+=======
+                    title: "Насколько Вы согласны или не согласны с каждым из следующих утверждений о том, как Вы видите себя? Вам кажется что Вы:",
+>>>>>>> trans
 
                     columns: [
                         {
                             name: "col1",
                             cellType: "radiogroup",
                             showInMultipleColumns: true,
-                            isRequired: false,
+                            isRequired: true,
+                            requiredErrorText: 'Пожалуйста, ответьте на вопрос',
                             choices: [
-                                {value: 1, text: "Totally disagree"},
-                                {value: 2, text: "Somewhat disagree"},
-                                {value: 3, text: "Neither agree nor disagree"},
-                                {value: 4, text: "Somewhat agree"},
-                                {value: 5, text: "Absolutely agree"},
-                                {value: 999, text: "Hard to say"}]
+                                {value: 1, text: "Совершенно не согласен/согласна"},
+                                {value: 2, text: "Скорее не согласен/согласна"},
+                                {value: 3, text: "Ни то чтобы согласен/согласна – ни то чтобы нет"},
+                                {value: 4, text: "Скорее согласен/согласна"},
+                                {value: 5, text: "Совершенно согласен/согласна"},
+                                {value: 999, text: "Затрудняюсь ответить"}]
                         },
                     ],
                     rows: [
+<<<<<<< HEAD
                         {value: 'big5_1', text: ' is reserved'},
                         {value: 'big5_2', text: 'is generally trusting'},
                         {value: 'big5_3', text: 'tends to be lazy'},
@@ -63,6 +69,19 @@
                         {value: 'big5_9', text: 'gets nervous easily'},
                         {value: 'big5_10', text: 'has an active imagination'},
                         {value: 'big5_11', text: 'is reserved'},
+=======
+                        {value: 'big5_1', text: ' сдержанный человек'},
+                        {value: 'big5_2', text: 'в целом доверчивый человек '},
+                        {value: 'big5_3', text: 'склонны к лени '},
+                        {value: 'big5_4', text: 'умеете расслабляться, успешно справляетесь со cтрессами'},
+                        {value: 'big5_5', text: 'имеете мало творческих увлечений'},
+                        {value: 'big5_6', text: 'открытый, общительный человек'},
+                        {value: 'big5_7', text: 'склонны находить недостатки в других'},
+                        {value: 'big5_8', text: 'тщательно выполняете свою работу'},
+                        {value: 'big5_9', text: 'легко выходите из себя'},
+                        {value: 'big5_10', text: 'обладаете богатым воображением'},
+                        {value: 'big5_11', text: 'добрый, внимательный к окружающим человек'},
+>>>>>>> trans
 
 
                     ]

@@ -12,10 +12,9 @@
     <div class="card my-3">
         <div class="card-body">
             <div class="card-text fw-bold">
-                How would your place your views on this scale?
-                1 means you agree completely with the statement on the left; 10 means you agree completely with the
-                statement on the right; and if your views fall somewhere in between, you can choose any number in
-                between.
+                Как бы Вы оценили свои взгляды по этой шкале? 1 означает, что Вы полностью согласны с утверждением слева;
+                10 означает, что Вы полностью согласны с утверждением справа; и если Ваши взгляды находятся где-то посередине,
+                Вы можете выбрать любое число между 1 и 10.
             </div>
         </div>
     </div>
@@ -30,7 +29,7 @@
                         {% for choice in choices %}
                             <input type="radio" class="btn-check" name="{{ item.name }}"
                                    id="{{ item.name }}_{{ choice }}"
-                                   autocomplete="off"
+                                   autocomplete="off"  required
                             >
                             <label class="btn btn-outline-primary"
                                    for="{{ item.name }}_{{ choice }}">{{ choice }}</label>

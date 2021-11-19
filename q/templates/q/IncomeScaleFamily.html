@@ -16,11 +16,13 @@
         .btn-group fieldset {
             display: flex !important;
             flex-direction: column;
-            width:100%
+            width: 100%
         }
-.btn-group {
-    width: 100%;
-}
+
+        .btn-group {
+            width: 100%;
+        }
+
         label.btn.btn-default.btn-secondary {
             display: flex !important;
             flex-direction: column;
@@ -42,17 +44,18 @@
             requiredText: '',
             showQuestionNumbers: "off",
             showCompletedPage: false,
-            completeText: "Next",
+            completeText: "Далее",
             questions: [
                 {
+                    requiredErrorText: 'Пожалуйста, ответьте на вопрос',
                     type: "rating",
                     name: "income_scale_family",
-                    title: "And if you think about the family that you grew up in, where did they fit in then?",
-
+                    isRequired: true,
+                    title: "Вспомните семью, в которой Вы росли. На какую позицию Вы бы поместили ее в то время",
                     rateMin: 0,
                     rateMax: 10,
-                    minRateDescription: "Lowest position ",
-                    maxRateDescription: "Highest position"
+                    minRateDescription: "Самая низкая позиция",
+                    maxRateDescription: "Самая высокая позиция"
                 },
             ]
         };
