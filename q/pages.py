@@ -186,13 +186,13 @@ class IncomePyramidRegional(Page):
 
 
 page_sequence = [
-    Consent,
-    City,
-    Income,
-    IncomeScale,
-    IncomeScaleFamily,
-    IncomePyramid,
-    IncomePyramidRegional,
+    # Consent,
+    # City,
+    # Income,
+    # IncomeScale,
+    # IncomeScaleFamily,
+    # IncomePyramid,
+    # IncomePyramidRegional,
     Lits2020,
     AltruismAndTrust,
     Patience,

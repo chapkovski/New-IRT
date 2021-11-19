@@ -16,11 +16,13 @@
         .btn-group fieldset {
             display: flex !important;
             flex-direction: column;
-            width:100%
+            width: 100%
         }
-.btn-group {
-    width: 100%;
-}
+
+        .btn-group {
+            width: 100%;
+        }
+
         label.btn.btn-default.btn-secondary {
             display: flex !important;
             flex-direction: column;
@@ -45,10 +47,11 @@
             completeText: "Далее",
             questions: [
                 {
+                    requiredErrorText: 'Пожалуйста, ответьте на вопрос',
                     type: "rating",
                     name: "income_scale_family",
                     title: "И если Вы подумаете о семье, в которой Вы выросли, то куда бы они вписались в те дни?",
-
+                    isRequired: true,
                     rateMin: 0,
                     rateMax: 10,
                     minRateDescription: "Самая низкая позиция",

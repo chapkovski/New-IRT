@@ -45,11 +45,11 @@
             showCompletedPage: false,
             completeText: "Далее",
             questions: [
-                {
+                {requiredErrorText: 'Пожалуйста, ответьте на вопрос',
                     type: "rating",
                     name: "income_scale",
                     title: "В нашем обществе есть социальные группы, которые расположены ближе к вершине, и группы, которые расположены ближе к низу. Ниже приведена шкала, которая проходит сверху вниз. Куда бы Вы сейчас отнесли себя на этой шкале?",
-
+                    isRequired:true,
                     rateMin: 0,
                     rateMax: 10,
                     minRateDescription: "Самая низкая позиция ",

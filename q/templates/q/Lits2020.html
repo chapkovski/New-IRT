@@ -29,7 +29,7 @@
                         {% for choice in choices %}
                             <input type="radio" class="btn-check" name="{{ item.name }}"
                                    id="{{ item.name }}_{{ choice }}"
-                                   autocomplete="off"
+                                   autocomplete="off"  required
                             >
                             <label class="btn btn-outline-primary"
                                    for="{{ item.name }}_{{ choice }}">{{ choice }}</label>
