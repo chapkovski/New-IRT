@@ -22,11 +22,11 @@ class Constants(BaseConstants):
     name_in_url = 'questionnaire'
     players_per_group = None
     num_rounds = 1
-    HARD_TO_SAY_CHOICE = [999, _('Hard to say')]
-    GENDER_CHOICES = [[0, _('Male')], [1, _('Female')]]
+    HARD_TO_SAY_CHOICE = [999, _('Затрудняюсь ответить')]
+    GENDER_CHOICES = [[0, _('Мужской')], [1, _('Женский')]]
 
     BEST_INTENSIONS_CHOICES = [
-        [0, _('0 - Totally disagree')],
+        [0, _('0 - Совершенно не согласен/согласна')],
         [1, '1'],
         [2, '2'],
         [3, '3'],
@@ -36,64 +36,64 @@ class Constants(BaseConstants):
         [7, '7'],
         [8, '8'],
         [9, '9'],
-        [10, _('10 - Totally agree')],
+        [10, _('10 - Совершенно согласен/согласна')],
 
     ]
 
     smoke_choices = [
-        [0, _('Never')],
-        [1, _('Occasionally')],
-        [2, _('Frequently')],
+        [0, _('Никогда')],
+        [1, _('Время от времени')],
+        [2, _('Часто')],
         HARD_TO_SAY_CHOICE
     ]
 
     fast_drive_choices = [
-        [0, _('Never')],
-        [1, _('Occasionally')],
-        [2, _('Frequently')],
-        [3, _('I do not drive')],
+        [0, _('Никогда')],
+        [1, _('Время от времени')],
+        [2, _('Часто')],
+        [3, _('Я не вожу машину')],
         HARD_TO_SAY_CHOICE
     ]
 
     agreement_choices_5DNK = [
-        [1, _('Totally disagree')],
-        [2, _('Somewhat disagree')],
-        [3, _('Neither agree nor disagree')],
-        [4, _('Somewhat agree')],
-        [5, _('Absolutely agree')],
+        [1, _('Совершенно не согласен/согласна')],
+        [2, _('Скорее не согласен/согласна')],
+        [3, _('Ни то чтобы согласен/согласна – ни то чтобы нет')],
+        [4, _('Скорее согласен/согласна')],
+        [5, _('Совершенно согласен/согласна')],
         HARD_TO_SAY_CHOICE
     ]
 
     income_choices = [
-        [1, _('Not even enough money for food')],
-        [2, _('Enough for food, but not enough to buy clothes and shoes')],
-        [3, _('Enough for clothes and shoes, but not enough to buy small appliances')],
+        [1, _('Не хватает денег даже на еду')],
+        [2, _('Хватает на еду, но не хватает на покупку одежды и обуви')],
+        [3, _('Хватает на одежду и обувь, но не хватает на покупку мелкой бытовой техники')],
         [4, _(
-            'Enough money for small purchases, but buying expensive things (computer, washing machine, refrigerator) requires savings or credit')],
+            'Хватает денег на небольшие покупки, но покупка дорогих вещей (компьютера, стиральной машины, холодильника) требует накоплений или кредита')],
         [5, _(
-            'Have enough money to buy for the house, but to buy a car, dacha, apartment requires saving or taking a loan')],
-        [6, _('Can afford any purchases without restrictions or credit')],
+            'Хватает денег на покупки для дома, но на покупку машины, дачи, квартиры необходимо копить или брать кредит')],
+        [6, _('Можем позволить себе любые покупки без ограничений и кредитов')],
         HARD_TO_SAY_CHOICE
     ]
 
     regional_income_changed_choices = [
-        [1, _('It became substantially smaller than a year ago')],
-        [2, _('It became a bit smaller than a year ago')],
-        [3, _('It did not change')],
-        [4, _('It became a bit larger than a year ago')],
-        [5, _('It became substantially large than a year ago')],
+        [1, _('Он стал значительно меньше, чем год назад')],
+        [2, _('Он стал немного меньше, чем год назад')],
+        [3, _('Он не изменился')],
+        [4, _('Он стал немного больше, чем год назад')],
+        [5, _('Он стал значительно больше, чем год назад')],
         HARD_TO_SAY_CHOICE
     ]
 
     relative_income_choices = [
-        [1, _('lower than the average in your city')],
-        [2, _('the same as the average in your city')],
-        [3, _('higher than the average in your city')],
+        [1, _('ниже, чем в среднем в вашем городе')],
+        [2, _('такой же, как в среднем в вашем городе')],
+        [3, _('выше, чем в среднем в вашем городе')],
         HARD_TO_SAY_CHOICE
     ]
 
     Patience_10 = [
-        [0, _('0 - Totally unwilling to so')],
+        [0, _('0 - совершенно не готов(а) так поступать')],
         [1, '1'],
         [2, '2'],
         [3, '3'],
@@ -103,14 +103,14 @@ class Constants(BaseConstants):
         [7, '7'],
         [8, '8'],
         [9, '9'],
-        [10, _('10 - Totally willing to do so')],
+        [10, _('10 - готов(а) поступать именно так')],
         HARD_TO_SAY_CHOICE
     ]
 
     RISK_CHOICES = range(0, 11)
 
     ready_help_choices = [
-        [0, _('0 - Completely unwilling to spend money')],
+        [0, _('0 - Совершенно не готов тратить деньги')],
         [1, '1'],
         [2, '2'],
         [3, '3'],
@@ -120,41 +120,41 @@ class Constants(BaseConstants):
         [7, '7'],
         [8, '8'],
         [9, '9'],
-        [10, _('10 - Very willing to spend money')],
+        [10, _('10 - Очень готов тратить деньги')],
         HARD_TO_SAY_CHOICE
     ]
 
     Yes_No = [
-        [0, _('No')],
-        [1, _('Yes')],
+        [0, _('Нет')],
+        [1, _('Да')],
         HARD_TO_SAY_CHOICE
     ]
 
     City_interaction = [
-        [0, _('No')],
-        [1, _('Yes')],
-        [2, _('No interaction')],
+        [0, _('Нет')],
+        [1, _('Да')],
+        [2, _('Не взаимодействовал(а)')],
         HARD_TO_SAY_CHOICE
     ]
     general_trust_choices = [
-        [0, _('You have to be very careful with other people')],
-        [1, _('Most people can be quite trusted')],
+        [0, _('Нужно быть очень осторожным с другими людьми')],
+        [1, _('Большинству людей вполне можно доверять')],
         HARD_TO_SAY_CHOICE
     ]
     cities = [
-        [1, _('Voronezh')],
-        [2, _('Vladivostok')],
-        [3, _('St. Petersburg')],
-        [4, _('Rostov-na-Donu')],
-        [5, _('Perm')],
-        [6, _('Novosibirsk')],
-        [7, _('Moscow')],
-        [8, _('Makhachkala')],
-        [9, _('Khabarovsk')],
-        [10, _('Kazan')],
-        [11, _('Ekaterinburg')],
-        [12, _('Arkhangelsk')],
-        [13, _('Other')],
+        [1, _('Воронеж (Воронежская область)')],
+        [2, _('Владивосток (Приморский край)')],
+        [3, _('Санкт-Петербург')],
+        [4, _('Ростов-на-Дону (Ростовская область)')],
+        [5, _('Пермь (Пермский край)')],
+        [6, _('Новосибирск (Новосибирская область)')],
+        [7, _('Москва')],
+        [8, _('Махачкала (Дагестан)')],
+        [9, _('Хабаровск (Хабаровский край)')],
+        [10, _('Казань (Татарстан)')],
+        [11, _('Екатеринбург (Свердловская область)')],
+        [12, _('Архангельск (Архангельская область)')],
+        [13, _('Другой')],
 
     ]
 
@@ -170,48 +170,48 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     gender = models.BooleanField(initial=None,
                                  choices=Constants.GENDER_CHOICES,
-                                 label=_('Indicate your gender'),
+                                 label=_('Укажите Ваш пол:'),
                                  widget=widgets.RadioSelect()
                                  )
 
     smoke = models.PositiveIntegerField(
-        label=_('How frequently do you smoke?'),
+        label=_('Как часто Вы курите?'),
         choices=Constants.smoke_choices,
         widget=widgets.RadioSelect()
     )
     general_trust = models.PositiveIntegerField(
         label=_(
-            'Do you think in general most people can be trusted, or does it never hurt to be cautious when dealing with other people?'),
+            'Как Вы считаете, в целом большинству людей можно доверять, или же при общении с другими людьми осторожность никогда не повредит?'),
         choices=Constants.general_trust_choices,
         widget=widgets.RadioSelect()
     )
 
     best_intentions = models.PositiveIntegerField(
-        label=_('I assume that people have only the best intentions'),
+        label=_('Я считаю, что люди имеют только лучшие намерения:'),
         choices=Constants.BEST_INTENSIONS_CHOICES,
         widget=widgets.RadioSelect()
     )
     fast_drive = models.PositiveIntegerField(
-        label=_('How often do you drive faster with your car than allowed by the traffic regulations?'),
+        label=_('Как часто Вы ездите на своем автомобиле быстрее, чем разрешено правилами дорожного движения?'),
         choices=Constants.fast_drive_choices,
         widget=widgets.RadioSelect()
     )
 
     income_diff = models.PositiveIntegerField(
-        label=_('Differences in income in Russia are too large'),
+        label=_('Различия в доходах в России слишком велики:'),
         choices=Constants.agreement_choices_5DNK,
         widget=widgets.RadioSelect()
     )
 
     reduce_income_diff = models.PositiveIntegerField(
         label=_(
-            'It is the responsibility of the government to reduce the differences in income between people with high incomes and those with low incomes'),
+            'Правительство несет ответственность за сокращение различий в доходах между людьми с высокими доходами и людьми с низкими доходами:'),
         choices=Constants.agreement_choices_5DNK,
         widget=widgets.RadioSelect()
     )
 
     income = models.PositiveIntegerField(
-        label=_('Which statement best describes the financial situation in your family?'),
+        label=_('Какое высказывание наиболее точно описывает финансовое положение Вашей семьи?'),
         choices=Constants.income_choices,
         widget=widgets.RadioSelect()
     )
@@ -220,47 +220,49 @@ class Player(BasePlayer):
         choices=Constants.income_choices,
         widget=widgets.RadioSelect,
         label=_(
-            """Did the financial situation of your family change over the last 12 months? - How would you have answered the previous question a year ago?""")
+            """Изменилось ли финансовое положение Вашей семьи за последние 12 месяцев? - Как бы Вы ответили на предыдущий вопрос год назад?""")
     )
 
     regional_average_income = models.PositiveIntegerField(
         label=_(
-            'In your opinion, what is the average monthly income of the residents of your region? Please write your estimate (in rubles per month)'),
+            'Как Вы считаете, каков среднемесячный доход жителей Вашего региона? Напишите, пожалуйста, Вашу оценку (в рублях в месяц):'),
     )
 
     regional_diff = models.PositiveIntegerField(
         label=_(
-            'Do you agree with the statement that the differences in the level of income between the regions of Russia are unjustifiably large?'),
+            'Согласны ли Вы с утверждением, что различия в уровне доходов между регионами России неоправданно велики?'),
         choices=Constants.agreement_choices_5DNK,
         widget=widgets.RadioSelect()
     )
 
     regional_income_changed = models.PositiveIntegerField(
         label=_(
-            'In your opinion, did the average monthly income of the residents of your region change over the last 12 months?'),
+            'По Вашему мнению, изменился ли среднемесячный доход жителей вашего региона за последние 12 месяцев?'),
         choices=Constants.regional_income_changed_choices,
         widget=widgets.RadioSelect()
     )
 
     relative_income = models.PositiveIntegerField(
-        label=_('Your average monthly income...'),
+        label=_('Ваш средний ежемесячный доход…'),
         choices=Constants.relative_income_choices,
         widget=widgets.RadioSelect()
     )
 
     # Patience_10
     patience_1 = models.IntegerField(label=_(
-        'How willing are you to give up something that is beneficial for you today in order to benefit more from that in the future?'),
+        'Насколько Вы готовы отказаться от чего-то выгодного для Вас сегодня, в пользу того, чтобы получить еще большую выгоду от этого в будущем?'),
         choices=Constants.Patience_10, widget=widgets.RadioSelect)
     patience_2 = models.IntegerField(label=_(
-        ' How willing are you to punish someone who treats others unfairly, even if there may be costs for you?'),
+        'Насколько Вы готовы наказать кого-то, кто поступает несправедливо с другими, даже если это может дорого Вам обойтись?'),
         choices=Constants.Patience_10, widget=widgets.RadioSelect)
-    patience_3 = models.IntegerField(label=_('When someone does me a favor, I am willing to return it'),
+    patience_3 = models.IntegerField(label=_('Когда кто-либо мне помогает, я стараюсь ответить тем же.'),
                                      choices=Constants.Patience_10, widget=widgets.RadioSelect)
     patience_4 = models.IntegerField(label=_(
-        'If I have been treated unfairly, I will retaliate at the first opportunity, even if it costs me a lot'),
+        'Если со мной поступили несправедливо, я отомщу при первом же удобном случае, даже если это дорого мне обойдется.'),
         choices=Constants.Patience_10, widget=widgets.RadioSelect)
-    patience_5 = models.IntegerField(choices=Constants.Patience_10)
+    patience_5 = models.IntegerField(label=_(
+        'Насколько Вы готовы совершать благородные поступки, ничего не ожидая взамен?'),
+        choices=Constants.Patience_10, widget=widgets.RadioSelect)
 
     # Risk
     risk_general = models.PositiveIntegerField(
@@ -268,7 +270,7 @@ class Player(BasePlayer):
         choices=Constants.RISK_CHOICES,
         widget=LikertWidget(
             quote=_(
-                "Please, indicate your general attitude to risk"),
+                "Укажите, пожалуйста, насколько Вы любите рисковать?"),
             label=_(
                 """. Please indicate your answer on a scale from 0 to 10. A 0 means “completely unwilling to take risk,” and a 10 means “very willing to take risk.”
                 """),
@@ -314,11 +316,9 @@ class Player(BasePlayer):
 
     ready_help = models.IntegerField(
         label=_(
-            'Willingness to spend money even at not return. Please indicate your answer on a scale from 0 to 10. A 0 means “Completely unwilling to spend money,” and a 10 means “Very willing to spend money '),
+            'Готовность тратить деньги даже при отсутствии отдачи. Пожалуйста, укажите свой ответ по шкале от 0 до 10. 0 означает "Совершенно не готов тратить деньги", а 10 - "Очень готов тратить деньги". '),
         choices=Constants.ready_help_choices,
         widget=widgets.RadioSelect)
-
-    ##Card 4.17 Сделать таблицу
 
     ## Income block 4 картинки вставить
     income_scale = models.IntegerField()
@@ -326,46 +326,46 @@ class Player(BasePlayer):
     income_pyramid = models.IntegerField()
     income_pyramid_regional = models.IntegerField()
     # Yes/No questions
-    donated_money = models.IntegerField(label=_('Have you donated money in the previous 12 months?'),
+    donated_money = models.IntegerField(label=_('Жертвовали ли Вы деньги за предыдущие 12 месяцев?'),
                                         choices=Constants.Yes_No, widget=widgets.RadioSelect)
     count_on_relatives = models.IntegerField(
-        label=_('Do you have relatives or friends you can count on to help you whenever needed?'),
+        label=_('Есть ли у Вас родственники или друзья, на помощь которых Вы можете рассчитывать в случае необходимости?'),
         choices=Constants.Yes_No, widget=widgets.RadioSelect)
-    help_stranger = models.IntegerField(label=_('Did you help a stranger in the previous 12 months who needed help?'),
+    help_stranger = models.IntegerField(label=_('Помогали ли Вы незнакомцу, который нуждался в помощи, за предыдущие 12 месяцев?'),
                                         choices=Constants.Yes_No, widget=widgets.RadioSelect)
-    self_employed = models.IntegerField(label=_('Are you self-employed?'), choices=Constants.Yes_No,
+    self_employed = models.IntegerField(label=_('Являетесь ли Вы в настоящее время самозанятым?'), choices=Constants.Yes_No,
                                         widget=widgets.RadioSelect)
     own_business = models.IntegerField(
-        label=_('For those who are not self-employed: Are you planning to start your own business?'),
+        label=_('Для тех, кто не является самозанятым: Планируете ли Вы начать свой собственный бизнес?'),
         choices=Constants.Yes_No, widget=widgets.RadioSelect)
-    save_money = models.IntegerField(label=_('Did you save any money in the previous 12 months?'),
+    save_money = models.IntegerField(label=_('Сэкономили ли Вы какие-либо деньги за предыдущие 12 месяцев?'),
                                      choices=Constants.Yes_No, widget=widgets.RadioSelect)
     fin_help = models.IntegerField(
-        label=_('Did you send help (money or goods) to another individual in the previous 12 months?'),
+        label=_('Отправляли ли Вы помощь (деньги или товары) другому лицу в течение предыдущих 12 месяцев?'),
         choices=Constants.Yes_No, widget=widgets.RadioSelect)
     vote_official = models.IntegerField(
-        label=_('Did you voice your opinion to a public official in the previous 12 months?'), choices=Constants.Yes_No,
+        label=_('Высказывали ли Вы свое мнение государственному должностному лицу в течение предыдущих 12 месяцев?'), choices=Constants.Yes_No,
         widget=widgets.RadioSelect)
     volunteer = models.IntegerField(
-        label=_('Did you voluntarily devote time to an organization in the previous 12 months?'),
+        label=_('Посвящали ли Вы добровольно время какой-либо организации в течение предыдущих 12 месяцев?'),
         choices=Constants.Yes_No, widget=widgets.RadioSelect)
     police_confidence = models.IntegerField(
-        label=_('In the city or area where you live, do you have confidence in the local police force?'),
+        label=_('В городе или районе, где Вы живете, доверяете ли Вы местной полиции?'),
         choices=Constants.Yes_No, widget=widgets.RadioSelect)
-    safety = models.IntegerField(label=_('Do you feel safe walking alone at night in the city or area where you live?'),
+    safety = models.IntegerField(label=_('Чувствуете ли Вы себя в безопасности, гуляя ночью в одиночестве по городу или району, где Вы живете?'),
                                  choices=Constants.Yes_No, widget=widgets.RadioSelect)
     stolen_money = models.IntegerField(
-        label=_('Has money or property been stolen from you or another household member within the last 12 months? '),
+        label=_('Были ли украдены деньги или имущество у Вас или другого члена семьи в течение последних 12 месяцев?'),
         choices=Constants.Yes_No, widget=widgets.RadioSelect)
-    used_trust = models.IntegerField(label=_('Did someone take advantage of your trust in the last 6 months?'),
+    used_trust = models.IntegerField(label=_('Воспользовался ли кто-нибудь Вашим доверием за последние 12 месяцев?'),
                                      choices=Constants.Yes_No, widget=widgets.RadioSelect)
     reciprocated_trust = models.IntegerField(
-        label=_('In the last 6 months, when you trusted  someone, was your trust paid back?'),
+        label=_('За последние 12 месяцев, когда Вы кому-то доверяли, было ли Ваше доверие вознаграждено?'),
         choices=Constants.Yes_No, widget=widgets.RadioSelect)
     disappointed_trust = models.IntegerField(
-        label=_('In the last 6 months, have you disappointed someone who has trusted you? '), choices=Constants.Yes_No,
+        label=_('За последние 12 месяцев разочаровывали ли Вы кого-то, кто Вам доверял? '), choices=Constants.Yes_No,
         widget=widgets.RadioSelect)
-    donated_blood = models.IntegerField(label=_('Did you donate blood during the last 6 months?'),
+    donated_blood = models.IntegerField(label=_('Вы сдавали донорскую кровь в течение последних 12 месяцев?'),
                                         choices=Constants.Yes_No, widget=widgets.RadioSelect)
 
     # Children qualities
@@ -527,19 +527,19 @@ class Player(BasePlayer):
     # Demographics
     years_lived_current_city = models.PositiveIntegerField(
         label=_(
-            'Please briefly consider the city in which you lived in July 2020. How many years have you already lived in the named city at this time (July 2020): '),
+            'Пожалуйста, припомните город, в котором Вы жили в июле 2020 года. Сколько лет Вы уже прожили в названном городе на данный момент (июль 2020 года): '),
     )
     years_lived_birth_city = models.PositiveIntegerField(
         label=_(
-            'After your birth, how many years did you live in the city of your birth?'),
+            'Сколько лет Вы прожили в городе, в котором Вы родились?'),
     )
     lived_other_city = models.IntegerField(label=_(
-        'Have you lived in any other city in October 2020?'),
+        'Жили ли Вы в каком-либо другом городе в октябре 2020 года?'),
         choices=Constants.Yes_No, widget=widgets.RadioSelect)
     previous_experiment = models.LongStringField(label="""
-     In another Toloka experiment, you have interacted with participants from other cities. Do you remember what the experiment was about? """)
-    previous_experiment_cities = models.LongStringField(label="""Do you remember any of the other cities where the participants were located you have interacted with?""")
+     В другом эксперименте "Толока" Вы взаимодействовали с участниками из других городов. Вы помните, в чем заключался эксперимент?""")
+    previous_experiment_cities = models.LongStringField(label="""Помните ли Вы какие-либо другие города, откуда были участники, с которыми Вы взаимодействовали?""")
 
     your_city = models.IntegerField(label=_(
-        'What is the city you live in?'),
+        'В каком городе Вы живете?'),
         choices=Constants.cities, widget=widgets.RadioSelect)

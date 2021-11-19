@@ -2,7 +2,7 @@
 {% load otree static %}
 
 {% block title %}
-   Risk
+   Риск
 {% endblock %}
 
 
@@ -25,12 +25,12 @@
                 hideNumber: true,
                 "type": "matrixdropdown",
                 "name": "risk",
-                "title": "Please indicate how willing you are to take risks?",
+                "title": "Укажите, пожалуйста, насколько Вы любите рисковать?",
 
                 "columns": [
                     {
                         name: "col1",
-                        title: 'To answer, choose a value on a scale from 0 to 10, where 0 means that you are "not at all willing to take risks" and 10 means that you are "very willing to take risks.\n',
+                        title: 'Для ответа выберите значение на шкале от 0 до 10, где 0 означает, что Вы «совершенно не готовы рисковать», а 10 означает, что Вы «охотно идете на риск».\n',
                         cellType: "rating",
                         "rateMin": 0,
                         "rateMax": 10,
@@ -39,18 +39,18 @@
                     },
                 ],
                 "rows": [
-                    {value: "risk_general", text: 'In general'},
-                    {value: "risk_fin", text: 'In financial matters'},
-                    {value: "risk_sport", text: 'In leisure and sport'},
-                    {value: "risk_prof", text: 'In professional career'},
-                    {value: "risk_health", text: 'In health'},
-                    {value: "risk_strangers", text: 'With strangers'},
-                    {value: "risk_drive", text: 'While driving'},
+                    {value: "risk_general", text: 'В целом'},
+                    {value: "risk_fin", text: 'В финансовых вопросах'},
+                    {value: "risk_sport", text: 'В свободное время и во время занятий спортом'},
+                    {value: "risk_prof", text: 'В Вашей профессии:'},
+                    {value: "risk_health", text: 'В том, что касается Вашего здоровья'},
+                    {value: "risk_strangers", text: 'В отношениях с незнакомыми людьми'},
+                    {value: "risk_drive", text: 'Во время езды за рулем'},
 
                 ]
             }
         ],
-        "completeText": "Next"
+        "completeText": "Далее"
     };
 
     window.survey = new Survey.Model(json);

@@ -28,12 +28,12 @@
                 hideNumber: true,
                 "type": "matrixdropdown",
                 "name": "patience",
-                "title": "We now ask you for your willingness to act in a certain way.",
+                "title": "Сейчас нам бы хотелось узнать, насколько Вы готовы к определенным действиям/поступкам.",
   {#"titleLocation": "hidden",#}
                 "columns": [
                     {
                         name: "col1",
-                        title: 'Please indicate your answer on a scale from 0 to 10. A 0 means “Totally unwilling to  do so” and a 10 means “Totally willing to do so”',
+                        title: 'Пожалуйста, дайте оценку по шкале от 0 до 10, где 0 означает, что Вы “совершенно не готовы так поступать”, а 10 означает, что Вы “готовы поступать именно так”.',
                          "titleLocation": "hidden",
                         cellType: "rating",
                         "rateMin": 0,
@@ -43,17 +43,17 @@
                     },
                 ],
                 "rows": [
-                    {value: "patience_1", text: 'How willing are you to give up something that is beneficial for you today in order to benefit more from that in the future?'},
-                    {value: "patience_2", text: ' How willing are you to punish someone who treats others unfairly, even if there may be costs for you?'},
-                    {value: "patience_3", text: 'When someone does me a favor, I am willing to return it'},
-                    {value: "patience_4", text: 'If I have been treated unfairly, I will retaliate at the first opportunity, even if it costs me a lot'},
-                    {value: "patience_5", text: 'How willing are you to give to good causes without expecting anything in return?'},
+                    {value: "patience_1", text: 'Насколько Вы готовы отказаться от чего-то выгодного для Вас сегодня, в пользу того, чтобы получить еще большую выгоду от этого в будущем?'},
+                    {value: "patience_2", text: 'Насколько Вы готовы наказать кого-то, кто поступает несправедливо с другими, даже если это может дорого Вам обойтись?'},
+                    {value: "patience_3", text: 'Когда кто-либо мне помогает, я стараюсь ответить тем же.'},
+                    {value: "patience_4", text: 'Если со мной поступили несправедливо, я отомщу при первом же удобном случае, даже если это дорого мне обойдется.'},
+                    {value: "patience_5", text: 'Насколько Вы готовы совершать благородные поступки, ничего не ожидая взамен?'},
 
 
                 ]
             }
         ],
-        "completeText": "Next"
+        "completeText": "Далее"
     };
 
     window.survey = new Survey.Model(json);

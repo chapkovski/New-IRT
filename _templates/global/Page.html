@@ -24,7 +24,7 @@ i removed many linebreaks to make output HTML cleaner
     <div class="otree-body container">
         <h2 class="otree-title page-header">
 
-        {% block index %}Page {{ page_index }} out of {{ maxpages }}.{% endblock %}
+        {% block index %}Страница {{ page_index }} из {{ maxpages }}.{% endblock %}
         {% block visibletitle %}{% endblock %}
             <div class="d-none">{% block title %}{% endblock %}</div>
         </h2>
@@ -33,7 +33,7 @@ i removed many linebreaks to make output HTML cleaner
         {% endif %}
         {% if form.errors %}
             <div class="otree-form-errors alert alert-danger">
-                {% blocktrans trimmed %}Please fix the errors in the form.{% endblocktrans %}
+                {% blocktrans trimmed %}Пожалуйста, ответьте на вопрос.{% endblocktrans %}
                 {{ form.non_field_errors }}
             </div>
         {% endif %}{% if js_vars|default:False %}
