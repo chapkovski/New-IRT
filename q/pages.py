@@ -6,13 +6,6 @@ from pprint import pprint
 
 
 class Page(oTreePage):
-    def get_context_data(self, **context):
-        r = super().get_context_data(**context)
-        r['maxpages'] = self.participant._max_page_index
-        r['page_index'] = self._index_in_pages
-        r['progress'] = f'{int(self._index_in_pages / self.participant._max_page_index * 100):d}'
-        return r
-
     def title(self):
         return self.__class__.__name__
 
@@ -20,18 +13,12 @@ class Page(oTreePage):
     form_model = 'player'
 
 
-class Consent(Page):
-    template_name = 'q/Consent.html'
-class Last(Page):
-    template_name = 'q/Last.html'
-
 class SES(Page):
     form_fields = ["gender",
                    "smoke",
                    "income",
                    "fin_situation_change",
                    "best_intentions",
-
                    "fast_drive",
                    "general_trust",
                    ]
@@ -82,19 +69,19 @@ class Lits2020(Page):
             dict(name='lits_ownership', left="Private ownership of business and industry should be increased",
                  right="Government ownership of business and industry should be increased"),
             dict(name='lits_competition',
-                 left="Competition is good. It stimulates people to work hard and develop new ideas",
+                 left="Competition is good. It stimulates people to word hard and develop new ideas",
                  right="Competition is harmful. It brings out the worse in people"),
             dict(name='lits_obey', left="People should obey the law without exception",
-                 right="There are times when people have good reasons to break the law", ),
+                 right="Therea are times when people hoave good reasons to break the law", ),
             dict(name='lits_authorities',
                  left='As citizens, we should be more active in questioning the actions of our authorities',
-                 right='In our country today, we should show more respect for our authorities'),
+                 right='In our country today, we should show more sepcect for our authoriteies'),
             dict(name='lits_wealthy',
                  left="There is no problem with the influence of wealthy individuals on the way government is run in this country",
                  right="Wealthy individuals often use their influence on government for their own interests and there need to be stricter rules to prevent this."),
             dict(name='lits_party',
                  left="Financial support by companies to political parties and candidates should be banned completely",
-                 right="There should be no limits on financial support by companies to political parties or candidates")
+                 right="Tere should be no limits on financial support by companies to political parties or candidates")
 
         ]
         return dict(choices=range(1, 11), items=items)
@@ -105,9 +92,9 @@ class Big5(Page):
 
     def post(self):
         data = json.loads(self.request.POST.get('surveyholder')).get('big5')
-        if data:
-            for k, v in data.items():
-                setattr(self.player, k, v.get('col1'))
+
+        for k, v in data.items():
+            setattr(self.player, k, v.get('col1'))
         return super().post()
 
 
@@ -121,7 +108,7 @@ class AltruismAndTrust(Page):
         altruism = data.get('altruism')
         if altruism:
             for k, v in altruism.items():
-                setattr(self.player, k, v)
+                setattr(self.player, k, v.get('col1'))
         return super().post()
 
 
@@ -130,18 +117,18 @@ class Risk(Page):
 
     def post(self):
         data = json.loads(self.request.POST.get('surveyholder')).get('risk')
-        if data:
-            for k, v in data.items():
-                setattr(self.player, k, v.get('col1'))
+        pprint(data)
+        for k, v in data.items():
+            setattr(self.player, k, v.get('col1'))
         return super().post()
 
 
 class Patience(Page):
     def post(self):
         data = json.loads(self.request.POST.get('surveyholder')).get('patience')
-        if data:
-            for k, v in data.items():
-                setattr(self.player, k, v.get('col1'))
+
+        for k, v in data.items():
+            setattr(self.player, k, v.get('col1'))
         return super().post()
 
     template_name = 'q/Patience.html'
@@ -151,11 +138,29 @@ class Demographics(Page):
     form_fields = [
         "years_lived_current_city",
         "years_lived_birth_city",
-        "lived_other_city",
-        'previous_experiment',
-        "previous_experiment_cities"
+        "lived_other_city"
     ]
 
+
+# class CityInteractionsTrustDisappointed(Page):
+#    def post(self):
+#       data = json.loads(self.request.POST.get('surveyholder')).get('trust_disappointed')
+#       if data:
+#           for k, v in data.items():
+#               setattr(self.player, k, v.get('col1'))
+#      return super().post()
+
+#  template_name = 'q/CityInteractionsTrustDisappointed.html'
+
+# class TrustPaidBack(Page):
+# def post(self):
+#     data = json.loads(self.request.POST.get('surveyholder')).get('trust_paid_back')
+#     if data:
+#         for k, v in data.items():
+#             setattr(self.player, k, v.get('col1'))
+#     return super().post()
+
+#  template_name = 'q/TrustPaidBack.html'
 
 
 class ChildrenQualities(Page):
@@ -185,7 +190,6 @@ class IncomePyramidRegional(Page):
 
 
 page_sequence = [
-    Consent,
     City,
     Income,
     IncomeScale,
@@ -200,5 +204,4 @@ page_sequence = [
     ChildrenQualities,
     Demographics,
     SES,
-    Last
 ]
