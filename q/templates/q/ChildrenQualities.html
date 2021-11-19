@@ -30,10 +30,12 @@
             questions: [
                 {
                     type: "checkbox",
+                    isRequired: true,
+                    requiredErrorText: 'Пожалуйста, ответьте на вопрос',
                     maxSelectedChoices: 5,
                     name: "children_qualities",
                     title: "Вот список качеств, которым детей можно поощрять учиться дома. Какие из них, если таковые имеются, Вы считаете особенно важными? Пожалуйста, выберите до пяти вариантов!",
-                    isRequired: false,
+
                     hasNone: true,
                     noneText: 'Ни одно из вышеперечисленных',
                     colCount: 1,

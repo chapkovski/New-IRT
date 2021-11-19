@@ -28,7 +28,6 @@
         }
 
 
-
     </style>
     <script src="https://unpkg.com/survey-jquery@1.8.70/survey.jquery.min.js"></script>
 
@@ -45,13 +44,17 @@
             requiredText: '',
             showQuestionNumbers: "off",
             showCompletedPage: false,
-            completeText: "Далее    ",
+            completeText: "Далее",
+
             questions: [
 
                 {
                     type: "matrix",
                     name: "altruism",
                     title: " ",
+                    isAllRowRequired: true,
+                    isRequired: true,
+                    requiredErrorText: 'Пожалуйста, ответьте на вопрос',
                     {#rowsOrder: 'random',#}
                     titleLocation: "hidden",
                     columns: [
@@ -85,7 +88,7 @@
                         },
                         {
                             value: "fin_help",
-                            text: "Отправляли ли Вы помощь (деньги или товары) другому лицу в течение предыдущих 12 месяцев?"
+                            text: "Помогали ли вы другому лицу (деньгами или вещами) в течение предыдущих 12 месяцев"
                         },
                         {
                             value: "vote_official",
@@ -109,11 +112,11 @@
                         },
                         {
                             value: "used_trust",
-                            text: "Воспользовался ли кто-нибудь Вашим доверием за последние 12 месяцев?"
+                            text: "Злоупотребил ли кто-нибудь Вашим доверием за последние 12 месяцев?"
                         },
                         {
                             value: "reciprocated_trust",
-                            text: "За последние 12 месяцев, когда Вы кому-то доверяли, было ли Ваше доверие вознаграждено?"
+                            text: "За последние 12 месяцев, когда Вы кому-то доверяли, оправдалось ли Ваше доверие?"
                         },
                         {
                             value: "disappointed_trust",

@@ -2,71 +2,72 @@
 {% load otree static %}
 
 {% block title %}
-   Риск
+    Риск
 {% endblock %}
 
 
 {% block content %}
 
-<script src="https://unpkg.com/survey-jquery@1.8.70/survey.jquery.min.js"></script>
+    <script src="https://unpkg.com/survey-jquery@1.8.70/survey.jquery.min.js"></script>
 
-<div id="surveyElement" style="display:inline-block;width:100%;"></div>
-<div id="surveyResult"></div>
-<input type="hidden" id="surveyholder" name="surveyholder">
-<script>
-    Survey.defaultBootstrapCss.navigationButton = "btn-primary btn-lg";
-    Survey
-        .StylesManager
-        .applyTheme("bootstrap");
+    <div id="surveyElement" style="display:inline-block;width:100%;"></div>
+    <div id="surveyResult"></div>
+    <input type="hidden" id="surveyholder" name="surveyholder">
+    <script>
+        Survey.defaultBootstrapCss.navigationButton = "btn-primary btn-lg";
+        Survey
+            .StylesManager
+            .applyTheme("bootstrap");
 
-    var json = {showCompletedPage:false,
-        questions: [
-            {
-                hideNumber: true,
-                "type": "matrixdropdown",
-                "name": "risk",
-                "title": "Укажите, пожалуйста, насколько Вы любите рисковать?",
+        var json = {
+            showCompletedPage: false,
+            questions: [
+                {
+                    hideNumber: true,
+                    "type": "matrixdropdown",
+                    "name": "risk",
+                    "title": "Укажите, пожалуйста, насколько Вы любите рисковать?",
 
-                "columns": [
-                    {
-                        name: "col1",
-                        title: 'Для ответа выберите значение на шкале от 0 до 10, где 0 означает, что Вы «совершенно не готовы рисковать», а 10 означает, что Вы «охотно идете на риск».\n',
-                        cellType: "rating",
-                        "rateMin": 0,
-                        "rateMax": 10,
-                        isRequired: false,
-                        requiredErrorText: 'This question is required',
-                    },
-                ],
-                "rows": [
-                    {value: "risk_general", text: 'В целом'},
-                    {value: "risk_fin", text: 'В финансовых вопросах'},
-                    {value: "risk_sport", text: 'В свободное время и во время занятий спортом'},
-                    {value: "risk_prof", text: 'В Вашей профессии:'},
-                    {value: "risk_health", text: 'В том, что касается Вашего здоровья'},
-                    {value: "risk_strangers", text: 'В отношениях с незнакомыми людьми'},
-                    {value: "risk_drive", text: 'Во время езды за рулем'},
+                    "columns": [
+                        {
+                            name: "col1",
+                            title: 'Для ответа выберите значение на шкале от 0 до 10, где 0 означает, что Вы «совершенно не готовы рисковать», а 10 означает, что Вы «охотно идете на риск».\n',
+                            cellType: "rating",
+                            "rateMin": 0,
+                            "rateMax": 10,
+                            isRequired: true,
+                            requiredErrorText: 'Пожалуйста, ответьте на вопрос',
+                        },
+                    ],
+                    "rows": [
+                        {value: "risk_general", text: 'В целом'},
+                        {value: "risk_fin", text: 'В финансовых вопросах'},
+                        {value: "risk_sport", text: 'В свободное время и во время занятий спортом'},
+                        {value: "risk_prof", text: 'В Вашей профессии:'},
+                        {value: "risk_health", text: 'В том, что касается Вашего здоровья'},
+                        {value: "risk_strangers", text: 'В отношениях с незнакомыми людьми'},
+                        {value: "risk_drive", text: 'Во время езды за рулем'},
 
-                ]
-            }
-        ],
-        "completeText": "Далее"
-    };
+                    ]
+                }
+            ],
+            "completeText": "Далее"
+        };
 
-    window.survey = new Survey.Model(json);
+        window.survey = new Survey.Model(json);
 
-    survey
-        .onComplete
-        .add(function (sender) {
-            document
-            $('#surveyholder').val(JSON.stringify(sender.data, null, 3))
-            $('#form').submit()
-            ;
-        });
+        survey
+            .onComplete
+            .add(function (sender) {
+                document
+                $('#surveyholder').val(JSON.stringify(sender.data, null, 3))
+                $('#form').submit()
+                ;
+            });
 
-    $("#surveyElement").Survey({model: survey});
-    ;
-</script>
+        $("#surveyElement").Survey({model: survey});
+        ;
+    </script>
 
 
 

@@ -2,74 +2,88 @@
 {% load otree static %}
 
 {% block title %}
-   Patience
+    Patience
 {% endblock %}
 
 
 {% block content %}
-   <style>
+    <style>
 
 
-</style>
-<script src="https://unpkg.com/survey-jquery@1.8.70/survey.jquery.min.js"></script>
+    </style>
+    <script src="https://unpkg.com/survey-jquery@1.8.70/survey.jquery.min.js"></script>
 
-<div id="surveyElement" style="display:inline-block;width:100%;"></div>
-<div id="surveyResult"></div>
-<input type="hidden" id="surveyholder" name="surveyholder">
-<script>
-    Survey.defaultBootstrapCss.navigationButton = "btn-primary btn-lg";
-    Survey
-        .StylesManager
-        .applyTheme("bootstrap");
+    <div id="surveyElement" style="display:inline-block;width:100%;"></div>
+    <div id="surveyResult"></div>
+    <input type="hidden" id="surveyholder" name="surveyholder">
+    <script>
+        Survey.defaultBootstrapCss.navigationButton = "btn-primary btn-lg";
+        Survey
+            .StylesManager
+            .applyTheme("bootstrap");
 
-    var json = {showCompletedPage:false,
-        questions: [
-            {
-                hideNumber: true,
-                "type": "matrixdropdown",
-                "name": "patience",
-                "title": "Сейчас нам бы хотелось узнать, насколько Вы готовы к определенным действиям/поступкам.",
-  {#"titleLocation": "hidden",#}
-                "columns": [
-                    {
-                        name: "col1",
-                        title: 'Пожалуйста, дайте оценку по шкале от 0 до 10, где 0 означает, что Вы “совершенно не готовы так поступать”, а 10 означает, что Вы “готовы поступать именно так”.',
-                         "titleLocation": "hidden",
-                        cellType: "rating",
-                        "rateMin": 0,
-                        "rateMax": 10,
-                        isRequired: false,
-                        requiredErrorText: 'This question is required',
-                    },
-                ],
-                "rows": [
-                    {value: "patience_1", text: 'Насколько Вы готовы отказаться от чего-то выгодного для Вас сегодня, в пользу того, чтобы получить еще большую выгоду от этого в будущем?'},
-                    {value: "patience_2", text: 'Насколько Вы готовы наказать кого-то, кто поступает несправедливо с другими, даже если это может дорого Вам обойтись?'},
-                    {value: "patience_3", text: 'Когда кто-либо мне помогает, я стараюсь ответить тем же.'},
-                    {value: "patience_4", text: 'Если со мной поступили несправедливо, я отомщу при первом же удобном случае, даже если это дорого мне обойдется.'},
-                    {value: "patience_5", text: 'Насколько Вы готовы совершать благородные поступки, ничего не ожидая взамен?'},
+        var json = {
+            showCompletedPage: false,
+            questions: [
+                {
+                    hideNumber: true,
+                    "type": "matrixdropdown",
+                    "name": "patience",
+                    "title": "Сейчас нам бы хотелось узнать, насколько Вы готовы к определенным действиям/поступкам.",
+                    {#"titleLocation": "hidden",#}
+                    "columns": [
+                        {
+                            name: "col1",
+                            title: 'Пожалуйста, дайте оценку по шкале от 0 до 10, где 0 означает, что Вы “совершенно не готовы так поступать”, а 10 означает, что Вы “готовы поступать именно так”.',
+                            "titleLocation": "hidden",
+                            cellType: "rating",
+                            "rateMin": 0,
+                            "rateMax": 10,
+                            isRequired: true,
+
+                            requiredErrorText: 'Пожалуйста, ответьте на вопрос',
+                        },
+                    ],
+                    "rows": [
+                        {
+                            value: "patience_1",
+                            text: 'Насколько Вы готовы отказаться от чего-то выгодного для Вас сегодня, в пользу того, чтобы получить еще большую выгоду от этого в будущем?'
+                        },
+                        {
+                            value: "patience_2",
+                            text: 'Насколько Вы готовы наказать кого-то, кто поступает несправедливо с другими, даже если это может дорого Вам обойтись?'
+                        },
+                        {value: "patience_3", text: 'Когда кто-либо мне помогает, я стараюсь ответить тем же.'},
+                        {
+                            value: "patience_4",
+                            text: 'Если со мной поступили несправедливо, я отомщу при первом же удобном случае, даже если это дорого мне обойдется.'
+                        },
+                        {
+                            value: "patience_5",
+                            text: 'Насколько Вы готовы совершать благородные поступки, ничего не ожидая взамен?'
+                        },
 
 
-                ]
-            }
-        ],
-        "completeText": "Далее"
-    };
+                    ]
+                }
+            ],
+            "completeText": "Далее"
+        };
 
-    window.survey = new Survey.Model(json);
+        window.survey = new Survey.Model(json);
 
-    survey
-        .onComplete
-        .add(function (sender) {
-            document
-            $('#surveyholder').val(JSON.stringify(sender.data, null, 3))
-            $('#form').submit()
-            ;
-        });
+        survey
+            .onComplete
+            .add(function (sender) {
+                document
+                $('#surveyholder').val(JSON.stringify(sender.data, null, 3))
+                $('#form').submit()
+                ;
+            });
 
-    $("#surveyElement").Survey({model: survey});
-    ;
-</script>
+        $("#surveyElement").Survey({model: survey});
+        ;
+    </script>
 
 
 
