@@ -1,0 +1,53 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Добро пожаловать!
+{% endblock %}
+
+{% block content %}
+
+    <div class="card my-3">
+        <div class="card-body">
+            <div class="card-text">
+                <ul class="list-group list-group-flush">
+
+
+                    <li class="list-group-item">
+                        В течение этого исследования вы будете взаимодействовать <b>в реальном времени</b> с другим
+                        случайно выбранным участником Толоки.
+                    </li>
+                    <li class="list-group-item">
+                        Если этот участник покинет исследование, ваше участие <b>также завершится.</b>
+                    </li>
+                    <li class="list-group-item">
+                        При этом вы все равно получите плату за участие!
+                    </li>
+                    <li class="list-group-item">
+                        Вам предстоит играть в игру "Камень-Ножницы-Бумага" со вторым участником в течение нескольких
+                        раундов.
+                    </li>
+                    <li class="list-group-item">
+                        Правила просты:
+                    </li>
+                    <li class=" list-group-item mx-3">
+                        Камень "бьет" ножницы.
+                    </li>
+                    <li class=" list-group-item mx-3 ">
+                        Ножницы "бьют" бумагу".
+                    </li>
+                    <li class=" list-group-item mx-3">
+                        Бумага "бьет" камень.
+                    </li>
+
+
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <div class="text-danger my-3">
+        {% formfields %}
+    </div>
+    {% next_button %}
+{% endblock %}

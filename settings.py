@@ -7,6 +7,11 @@ SESSION_CONFIGS = [
         num_demo_participants=1,
         app_sequence=['q']
     ),
+    dict(
+        name='matcher',
+        num_demo_participants=2,
+        app_sequence=['intro_matcher','matcher']
+    ),
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
