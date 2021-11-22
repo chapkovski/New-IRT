@@ -2,10 +2,10 @@ from os import environ
 
 SESSION_CONFIGS = [
     dict(
-       name='q',
-       display_name="questionnaire new IRT - second wave",
-       num_demo_participants=1,
-       app_sequence=['q']
+        name='q',
+        display_name="questionnaire new IRT - second wave",
+        num_demo_participants=1,
+        app_sequence=['q']
     ),
 ]
 
@@ -36,3 +36,10 @@ SECRET_KEY = 'u%f)r#g+&1mg-0yl+q#at=l@(a7dytm9hb92+#2422vi)e#2!p'
 
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
 INSTALLED_APPS = ['otree']
+ROOMS = [
+
+    dict(
+        name='toloka',
+        display_name='Toloka'
+    ),
+]
