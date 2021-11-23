@@ -1,8 +1,8 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
 
-{% block title %}
-    Примите решение. Период {{ view.round_number }}
+{% block visibletitle %}
+    Примите решение. Период {{ view.round_number }} из {{ Constants.num_rounds }}
 {% endblock %}
 
 {% block content %}

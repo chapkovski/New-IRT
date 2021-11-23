@@ -1,6 +1,7 @@
 from otree.api import Currency as c, currency_range
 from ._builtin import Page as oTreePage, WaitPage
 from .models import Constants
+from django.utils.timezone import now
 
 
 class Page(oTreePage):
@@ -16,7 +17,12 @@ class Page(oTreePage):
 
 
 class FirstWP(WaitPage):
+    template_name = 'matcher/FirstWP.html'
     group_by_arrival_time = True
+
+    def _get_wait_page(self):
+        self.participant.vars.setdefault('first_wp_arrival', now())
+        return super()._get_wait_page()
 
     def is_displayed(self):
         return self.round_number == 1
@@ -35,6 +41,9 @@ class Decision(Page):
     timeout_seconds = 30
     form_model = 'player'
     form_fields = ['decision']
+
+    def is_displayed(self):
+        return not self.participant.vars.get('group_blocked')
 
     def before_next_page(self):
         if self.timeout_happened:

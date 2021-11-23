@@ -8,6 +8,7 @@ from otree.api import (
     Currency as c,
     currency_range,
 )
+from django.utils.timezone import now
 
 author = 'Your name here'
 
@@ -19,7 +20,8 @@ Your app description
 class Constants(BaseConstants):
     name_in_url = 'matcher'
     players_per_group = 2
-    num_rounds = 3
+    num_rounds = 10
+    max_waiting_time = 30
     loss = 0
     win = 2
     tie = 1
@@ -37,7 +39,15 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-    pass
+    def group_by_arrival_time_method(self, waiting_players):
+        if len(waiting_players) > 1:
+            return waiting_players[:2]
+        for i in waiting_players:
+            if (now() - i.participant.vars.get('first_wp_arrival', now())).total_seconds() > Constants.max_waiting_time:
+                i.participant.vars['blocked_in_wp'] = True
+                i.participant.vars['group_blocked'] = True
+                i.participant.vars['alter_block'] = True
+                return [i]
 
 
 class Group(BaseGroup):
