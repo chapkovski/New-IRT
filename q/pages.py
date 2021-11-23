@@ -214,7 +214,7 @@ page_sequence = [
     # Big5,
     # Risk,
     ChildrenQualities,
-    # Demographics,
+    Demographics,
     SES,
     Last
 ]

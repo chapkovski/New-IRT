@@ -10,7 +10,13 @@ SESSION_CONFIGS = [
     dict(
         name='matcher',
         num_demo_participants=2,
-        app_sequence=['intro_matcher','matcher']
+        app_sequence=[
+            # 'intro_matcher',
+            'matcher',
+            'rsp',
+            'blocker',
+            'last'
+        ]
     ),
 ]
 
@@ -40,7 +46,7 @@ DEMO_PAGE_INTRO_HTML = """ """
 SECRET_KEY = 'u%f)r#g+&1mg-0yl+q#at=l@(a7dytm9hb92+#2422vi)e#2!p'
 
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
-INSTALLED_APPS = ['otree']
+INSTALLED_APPS = ['otree', 'matcher']
 ROOMS = [
 
     dict(
