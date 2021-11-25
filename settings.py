@@ -18,6 +18,13 @@ SESSION_CONFIGS = [
             'last'
         ]
     ),
+    dict(
+        name='pgg',
+        num_demo_participants=3,
+        app_sequence=[
+           'public_goods'
+        ]
+    ),
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
